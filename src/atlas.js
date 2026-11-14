@@ -11,7 +11,7 @@
  *    - Sliding Source Drawer on click with DOI, PSI link, and telemetry gauges.
  * 3. ECLSS Controls & Material Safety Passport Engine:
  *    - Sliders (O2%, Pressure, Airflow) & Gravity Mode buttons.
- *    - 4 Material Cards: PMMA, Cotton-Fiberglass, Silicone Elastomer, Nomex.
+ *    - 4 Material Cards: PMMA, Cotton-Fiberglass, Elastomer Hatch Seal, Nomex.
  *    - Strict evaluation:
  *      * 🟢 COVERED [✓]: Material tested in microgravity AND conditions within bounds.
  *      * 🟡 EXTRAPOLATED / NEAR [~]: Material tested, but bounds exceeded OR gravity is Lunar 0.16g
@@ -830,8 +830,8 @@ export class IgnisAtlas {
         pBounds: [11.6, 14.7],
       },
       {
-        id: 'MAT-SILICONE',
-        name: 'Silicone Elastomer',
+        id: 'MAT-ELASTOMER',
+        name: 'Elastomer Hatch Seal',
         subtitle: 'Polysiloxane elastomer • Hatch pressure seals, cable feedthroughs & O-rings',
         testedIn: ['GAP-LUNAR-LUCI'],
         hasMicrogravityRecords: false,
@@ -922,7 +922,7 @@ export class IgnisAtlas {
         },
         {
           gap_id: "GAP-ELASTOMER-SEALS",
-          material: "Silicone Elastomer / Nomex",
+          material: "Elastomer Hatch Seal / Nomex",
           finding: "Zero standardized microgravity combustion envelopes exist in PSI.",
           recommended_mission: "LUCI / FM2 Lunar Mission prioritization."
         }
@@ -1069,10 +1069,10 @@ export class IgnisAtlas {
         hasMicrogravityRecords: true,
       },
       {
-        id: 'MAT-SILICONE',
-        name: 'Silicone Elastomer',
+        id: 'MAT-ELASTOMER',
+        name: 'Elastomer Hatch Seal',
         subtitle: 'Polysiloxane elastomer • Hatch pressure seals, cable feedthroughs & O-rings',
-        keywords: ['silicone', 'silicon rubber'],
+        keywords: ['elastomer', 'silicon rubber'],
         hasMicrogravityRecords: null, // resolved dynamically below
       },
       {
@@ -1408,7 +1408,7 @@ export class IgnisAtlas {
         this.pulseHighlightCard('MAT-PMMA', 'mat-pulse-near');
       }
     }
-    // Step 3: 18 to 28s (Silicone Elastomer Critical Data Gap / LUCI)
+    // Step 3: 18 to 28s (Elastomer Hatch Seal Critical Data Gap / LUCI)
     else if (timeSec >= 18.0 && timeSec < 28.0) {
       if (this.currentTourStep !== 3) {
         this.currentTourStep = 3;
@@ -1417,10 +1417,10 @@ export class IgnisAtlas {
         if (this.tourStepBadge) this.tourStepBadge.textContent = 'STEP 3/4 // 10s';
         if (this.tourStepTitle) this.tourStepTitle.textContent = 'CRITICAL MATERIAL VOID (LUCI TARGET)';
         if (this.tourDesc) {
-          this.tourDesc.textContent = 'Silicone Elastomer hatch pressure seals evaluate as [✕] DATA GAP. Zero flight records exist in PSI, establishing the primary flight test requirement for upcoming LUCI/FM2 lunar missions.';
+          this.tourDesc.textContent = 'Elastomer Hatch Seal hatch pressure seals evaluate as [✕] DATA GAP. Zero flight records exist in PSI, establishing the primary flight test requirement for upcoming LUCI/FM2 lunar missions.';
         }
 
-        this.pulseHighlightCard('MAT-SILICONE', 'mat-pulse-gap');
+        this.pulseHighlightCard('MAT-ELASTOMER', 'mat-pulse-gap');
       }
     }
     // Step 4: 28 to 30s (Smooth wrap-up showing Earth Spin-Offs)
