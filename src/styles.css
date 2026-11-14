@@ -4795,6 +4795,8 @@ button {
 
 /* Scroll Body */
 .oracle-scroll-body {
+  padding-bottom: 90px !important;
+  scroll-behavior: smooth;
   flex: 1;
   overflow-y: auto;
   padding: 22px;
