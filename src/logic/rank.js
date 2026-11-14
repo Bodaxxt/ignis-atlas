@@ -48,8 +48,8 @@ export function rankExperiments(scenario, experiments) {
       return distA - distB;
     }
 
-    // Tertiary sort: by experiment id (natural numeric sort e.g. PSI-25 before PSI-140)
-    return (a.experiment.id || '').localeCompare(b.experiment.id || '', undefined, { numeric: true });
+    // Tertiary sort: by experiment id
+    return (a.experiment.id || '').localeCompare(b.experiment.id || '');
   });
 
   return scored;
