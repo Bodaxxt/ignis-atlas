@@ -1,14 +1,14 @@
 /**
- * Ignis Atlas — Sprint 2 Lead Systems Integration
- * Fully wires internal data logic and interactive telemetry components to verified experiments.json.
+ * Ignis Atlas — Release Lead Systems Integration
+ * Fully wires internal data logic and interactive telemetry components to PSI flight experiments.json.
  * 
- * SPRINT 2 DELIVERABLES:
- * 1. Data Ingestion of 5-record verified dataset (BASS-01, FLEX-02, ACME-03, SoFIE-04, GAP-LUNAR-LUCI).
+ * Release DELIVERABLES:
+ * 1. Data Ingestion of PSI flight dataset (BASS-01, FLEX-02, ACME-03, BASS-04, GAP-LUNAR-LUCI).
  * 2. Star-Map Scatter Plot:
  *    - Midpoint coordinates plotting for each active experiment.
  *    - Distinct fuel state glyphs: Solid (Square), Liquid (Diamond), Gas (Circle).
  *    - Amber Dashed Bounding Box for Lunar Habitat Zone (O2 >= 30%, P <= 10.2 psi).
- *    - Sliding Source Drawer on click with verified DOI, PSI link, and telemetry gauges.
+ *    - Sliding Source Drawer on click with DOI, PSI link, and telemetry gauges.
  * 3. ECLSS Controls & Material Safety Passport Engine:
  *    - Sliders (O2%, Pressure, Airflow) & Gravity Mode buttons.
  *    - 4 Material Cards: PMMA, Cotton-Fiberglass, Silicone Elastomer, Nomex.
@@ -80,7 +80,7 @@ export class IgnisAtlas {
         }
       }
     } catch {
-      console.warn('[Ignis Atlas] Using bundled verified dataset.');
+      console.warn('[Ignis Atlas] using bundled dataset.');
     }
   }
 
@@ -93,7 +93,7 @@ export class IgnisAtlas {
   }
 
   /* ==========================================================================
-     1. STAR-MAP SCATTER PLOT (Sprint 2 Core)
+     1. STAR-MAP SCATTER PLOT (Release Core)
      ========================================================================== */
   renderStarMap() {
     const container = document.getElementById('atlas-svg-container');
@@ -149,7 +149,7 @@ export class IgnisAtlas {
           ${this.buildExperimentEnvelopes()}
         </g>
 
-        <!-- Sprint 2: Luminous Midpoint Nodes with Fuel State Glyphs -->
+        <!-- Release: Luminous Midpoint Nodes with Fuel State Glyphs -->
         <g id="svg-midpoint-nodes-group">
           ${this.buildMidpointNodes()}
         </g>
@@ -328,7 +328,7 @@ export class IgnisAtlas {
       let glyphMarkup = '';
       let glyphClass = 'glyph-solid';
 
-      // Sprint 2 Contract: Solid = square, Liquid = diamond, Gas = circle with Luminous Cyber Glow
+      // Release Contract: Solid = square, Liquid = diamond, Gas = circle with Luminous Cyber Glow
       if (fuelType.includes('solid')) {
         glyphClass = 'glyph-solid';
         glyphMarkup = `<rect x="${cx - 8}" y="${cy - 8}" width="16" height="16" rx="3" class="midpoint-glyph ${glyphClass}" filter="url(#glowFilter)" />`;
@@ -627,16 +627,16 @@ export class IgnisAtlas {
     document.getElementById('drawer-finding').textContent = `"${exp.key_finding}"`;
     document.getElementById('drawer-facility-badge').textContent = `${exp.hardware} // NASA Glenn`;
 
-    const o2Val = exp.o2 ? `${exp.o2[0]}% – ${exp.o2[1]}%` : 'Null (Unmeasured)';
-    const pVal = exp.pressure_psi ? `${exp.pressure_psi[0]} – ${exp.pressure_psi[1]} psi` : 'Null (Pending Standard Bounds)';
-    const flowVal = exp.airflow_cms ? `${exp.airflow_cms[0]} – ${exp.airflow_cms[1]} cm/s` : 'Quiescent (0 cm/s)';
+    const o2Val = exp.o2 ? `${exp.o2[0]}% – ${exp.o2[1]}%` : 'not recorded';
+    const pVal = exp.pressure_psi ? `${exp.pressure_psi[0]} – ${exp.pressure_psi[1]} psi` : 'not recorded';
+    const flowVal = exp.airflow_cms ? `${exp.airflow_cms[0]} – ${exp.airflow_cms[1]} cm/s` : 'not recorded';
 
     document.getElementById('drawer-o2').textContent = o2Val;
     document.getElementById('drawer-pressure').textContent = pVal;
     document.getElementById('drawer-airflow').textContent = flowVal;
-    document.getElementById('drawer-gravity').textContent = exp.gravity || 'Microgravity (~10⁻⁴ g)';
-    document.getElementById('drawer-fuel').textContent = exp.fuel_state || 'Solid';
-    document.getElementById('drawer-materials').textContent = Array.isArray(exp.materials) ? exp.materials.join(', ') : exp.materials;
+    document.getElementById('drawer-gravity').textContent = exp.gravity || 'not recorded';
+    document.getElementById('drawer-fuel').textContent = exp.fuel_state || 'not recorded';
+    document.getElementById('drawer-materials').textContent = Array.isArray(exp.materials) ? exp.materials.join(', ') : (exp.materials || 'not recorded');
 
     // Meter fills
     const meterO2 = document.getElementById('meter-o2');
@@ -647,7 +647,11 @@ export class IgnisAtlas {
     if (meterP) meterP.style.width = exp.pressure_psi ? `${Math.min(100, (exp.pressure_psi[1] / 16.5) * 100)}%` : '0%';
     if (meterFlow) meterFlow.style.width = exp.airflow_cms ? `${Math.min(100, (exp.airflow_cms[1] / 20) * 100)}%` : '0%';
 
-    document.getElementById('drawer-verified').textContent = `Verified: ${exp.verified_by || 'NASA Physical Sciences Informatics'}`;
+    const verifiedEl = document.getElementById('drawer-verified');
+    if (verifiedEl) {
+      verifiedEl.textContent = exp.verified_by ? exp.verified_by : '';
+      verifiedEl.style.display = exp.verified_by ? 'block' : 'none';
+    }
     document.getElementById('drawer-notes').textContent = exp.notes || '';
 
     const psiLink = document.getElementById('drawer-psi-link');
@@ -679,7 +683,7 @@ export class IgnisAtlas {
   }
 
   /* ==========================================================================
-     2. ECLSS CONTROLS & MATERIAL SAFETY PASSPORT (Sprint 2 & 3 Core)
+     2. ECLSS CONTROLS & MATERIAL SAFETY PASSPORT (Release & 3 Core)
      ========================================================================== */
   syncControlsAndPassport() {
     const o2Slider = document.getElementById('passport-o2');
@@ -794,7 +798,7 @@ export class IgnisAtlas {
   }
 
   /* ==========================================================================
-     HABITAT ASSESSMENT JSON EXPORT (Sprint 3 Deliverable)
+     HABITAT ASSESSMENT JSON EXPORT (Release Deliverable)
      ========================================================================== */
   initExportCapability() {
     const exportBtn = document.getElementById('btn-export-assessment');
@@ -863,7 +867,7 @@ export class IgnisAtlas {
         if (this.currentGravity === '0g' && insideO2 && insideP) {
           status = 'COVERED';
           code = '[✓] COVERED';
-          reason = `Material tested in microgravity (${mat.testedIn.join(', ')}). Current conditions (${this.currentO2.toFixed(1)}% O₂, ${this.currentPressure.toFixed(1)} psi) fall within verified bounds.`;
+          reason = `Material tested in microgravity (${mat.testedIn.join(', ')}). Current conditions (${this.currentO2.toFixed(1)}% O₂, ${this.currentPressure.toFixed(1)} psi) fall within recorded bounds.`;
         } else {
           status = 'EXTRAPOLATED';
           code = '[~] EXTRAPOLATED';
@@ -872,7 +876,7 @@ export class IgnisAtlas {
           } else if (this.currentGravity === 'mars') {
             reason = 'Tested in 0g, but 0.38g Martian partial-gravity flammability remains unmeasured in PSI.';
           } else if (!insideO2 || !insideP) {
-            reason = `Material tested in 0g, but current atmospheric conditions exceed verified PSI bounds (${mat.o2Bounds[0]}–${mat.o2Bounds[1]}% O₂, ${mat.pBounds[0]}–${mat.pBounds[1]} psi).`;
+            reason = `Material tested in 0g, but current atmospheric conditions exceed PSI bounds (${mat.o2Bounds[0]}–${mat.o2Bounds[1]}% O₂, ${mat.pBounds[0]}–${mat.pBounds[1]} psi).`;
           } else {
             reason = 'Terrestrial buoyant convection baseline. Microgravity extinction limits require adjustment.';
           }
@@ -1008,7 +1012,7 @@ export class IgnisAtlas {
   }
 
   /* ─────────────────────────────────────────────────────────────────────────
-     LIVE PSI EXPERIMENT MATCHER
+     PSI EXPERIMENT MATCHER
      For a given material keyword list, find experiments from experiments.json
      that (a) test matching materials AND (b) cover the current O2/pressure.
      Returns arrays: covered[], near[], allRelated[].
@@ -1126,7 +1130,7 @@ export class IgnisAtlas {
           status = 'covered';
           statusBadge = '[✓] COVERED';
           statusClass = 'mat-status-ok';
-          reasonText = `Current conditions (${this.currentO2.toFixed(1)}% O₂, ${this.currentPressure.toFixed(1)} psi) fall within verified PSI flight bounds for this material.`;
+          reasonText = `Current conditions (${this.currentO2.toFixed(1)}% O₂, ${this.currentPressure.toFixed(1)} psi) fall within PSI flight bounds for this material.`;
           coveredCount++;
         } else {
           // EXTRAPOLATED: material tested but conditions/gravity outside envelope
@@ -1140,7 +1144,7 @@ export class IgnisAtlas {
           } else if (this.currentGravity === 'mars') {
             reasonText = `Tested in 0g up to ${nearest.o2 ? nearest.o2[1] : '?'}% O₂; 0.38g Martian partial-gravity flammability unmeasured in PSI.`;
           } else {
-            reasonText = `Nearest PSI record (${nearest.id}) tested ${o2Str} O₂. Current ${this.currentO2.toFixed(1)}% O₂ / ${this.currentPressure.toFixed(1)} psi is outside verified bounds.`;
+            reasonText = `Nearest PSI record (${nearest.id}) tested ${o2Str} O₂. Current ${this.currentO2.toFixed(1)}% O₂ / ${this.currentPressure.toFixed(1)} psi is outside recorded bounds.`;
           }
           nearCount++;
         }
@@ -1260,7 +1264,7 @@ export class IgnisAtlas {
   }
 
   /* ==========================================================================
-     JUDGE DEMO MODE & GUIDED EVALUATION TOUR (Sprint 3 Core)
+     JUDGE DEMO MODE & GUIDED EVALUATION TOUR (Release Core)
      ========================================================================== */
   initJudgeDemoMode() {
     this.demoBtn = document.getElementById('btn-judge-demo');
@@ -1379,7 +1383,7 @@ export class IgnisAtlas {
         if (this.tourStepBadge) this.tourStepBadge.textContent = 'STEP 1/4 // 08s';
         if (this.tourStepTitle) this.tourStepTitle.textContent = 'ISS ORBITAL BASELINE (0.00g)';
         if (this.tourDesc) {
-          this.tourDesc.textContent = 'Auto-selecting ISS Cabin baseline (21% O₂, 14.7 psi, 0.00g). 3D flame morphs to spherical blue diffusion shell. PMMA acrylic evaluates as [✓] COVERED inside verified BASS-II/FLEX boundaries.';
+          this.tourDesc.textContent = 'Auto-selecting ISS Cabin baseline (21% O₂, 14.7 psi, 0.00g). 3D flame morphs to spherical blue diffusion shell. PMMA acrylic evaluates as [✓] COVERED inside BASS-II/FLEX boundaries.';
         }
 
         this.pulseHighlightCard('MAT-PMMA', 'mat-pulse-ok');

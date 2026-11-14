@@ -10,7 +10,7 @@ export class IgnisOracle {
     this.drawerEl = null;
     this.isOpen = false;
     this.isAuditing = false;
-    this.activeDirective = null;
+    this.activeSummary = null;
     this.init();
   }
 
@@ -97,13 +97,13 @@ export class IgnisOracle {
                 <span class="tuning-badge-dot"></span>
                 <span class="tuning-h3">ENVIRONMENT PARAMETERS // MISSION TUNING</span>
               </div>
-              <span class="tuning-sub">CUSTOMIZE CABIN ATMOSPHERE &bull; REAL-TIME KINETIC INFERENCE</span>
+              <span class="tuning-sub">CUSTOMIZE CABIN ATMOSPHERE &bull; REAL-TIME ATMOSPHERIC INFERENCE</span>
             </div>
 
             <!-- Preset Mission Profile Chips -->
             <div class="tuning-presets-bar mono">
               <span class="presets-label">FLIGHT PROFILES:</span>
-              <button type="button" class="preset-pill active" data-o2="34.0" data-p="10.2" data-g="0.16g" data-flow="10.0" data-mat="PMMA (Acrylic Window)">Artemis Lunar (34% / 10.2 PSI)</button>
+              <button type="button" class="preset-pill active" data-o2="34.0" data-p="10.2" data-g="0.16g" data-flow="10.0" data-mat="PMMA (Acrylic Window)">Artemis Lunar (≥30% O₂ / 10.2 PSI)</button>
               <button type="button" class="preset-pill" data-o2="21.0" data-p="14.7" data-g="0g" data-flow="20.0" data-mat="Cotton-Fiberglass Fabric (Sibal)">ISS Cabin (21% / 14.7 PSI)</button>
               <button type="button" class="preset-pill" data-o2="100.0" data-p="4.3" data-g="0g" data-flow="0.0" data-mat="Nomex Aramid">Spacesuit EVA (100% / 4.3 PSI)</button>
               <button type="button" class="preset-pill" data-o2="30.0" data-p="8.2" data-g="0.38g" data-flow="5.0" data-mat="Silicone Rubber (Hatch Seals)">Mars Habitat (30% / 8.2 PSI)</button>
@@ -121,7 +121,7 @@ export class IgnisOracle {
                 <input type="range" id="agent-slider-o2" min="15.0" max="100.0" step="0.5" value="34.0" class="agent-slider" />
                 <div class="c-hints">
                   <span>15% (Extinction)</span>
-                  <span>34% (Artemis)</span>
+                  <span>≥30% (Artemis)</span>
                   <span>100% (Suit)</span>
                 </div>
               </div>
@@ -212,7 +212,7 @@ export class IgnisOracle {
               </button>
               <button class="emergency-chip-btn mono" data-scenario="acrylic_window">
                 <span class="chip-badge crit">PMMA</span>
-                <span class="chip-title">Audit Acrylic Window Flammability in 34% O₂</span>
+                <span class="chip-title">Audit Acrylic Window Flammability in ≥30% O₂</span>
               </button>
               <button class="emergency-chip-btn mono" data-scenario="silicone_seal">
                 <span class="chip-badge fix">SEALS</span>
@@ -245,8 +245,8 @@ export class IgnisOracle {
             </div>
           </div>
 
-          <!-- Final Flight Directive Card Container -->
-          <div id="oracle-directive-container" class="oracle-directive-container"></div>
+          <!-- Final Flight Flight Safety Summary Card Container -->
+          <div id="oracle-summary-container" class="oracle-summary-container"></div>
 
         </div>
 
@@ -447,7 +447,7 @@ export class IgnisOracle {
   resetAgentState() {
     const pipeline = document.getElementById('trace-pipeline-deck');
     const status = document.getElementById('agent-pipeline-status');
-    const dirContainer = document.getElementById('oracle-directive-container');
+    const dirContainer = document.getElementById('oracle-summary-container');
 
     if (status) status.textContent = 'STANDBY';
     if (dirContainer) dirContainer.innerHTML = '';
@@ -520,7 +520,7 @@ export class IgnisOracle {
       gravityVerdict = `CRITICAL EMPIRICAL GAP: NASA PSI contains 0 flight datasets for steady-state ${gravity} partial gravity. All existing empirical flight points were logged in microgravity (0g on ISS/Cygnus/Shuttle).`;
     } else if (gravity === '0g') {
       gravityVerdict = isCovered
-        ? `Flight Boundary Match: Conditions fall within the verified operational envelope of ${nearestExp.id} (${nearestExp.name}).`
+        ? `Flight Boundary Match: Conditions fall within the recorded operational envelope of ${nearestExp.id} (${nearestExp.name}).`
         : `Microgravity Regime: Nearest empirical boundary is ${nearestExp.id} (${nearestExp.name}) at normalized distance ${minDistance.toFixed(3)}.`;
     } else {
       gravityVerdict = 'Terrestrial 1.0g Reference: Standard buoyancy-driven convective plume active. Standard NASA-STD-6001B Test 1 limits applicable.';
@@ -581,7 +581,7 @@ export class IgnisOracle {
 
     const statusEl = document.getElementById('agent-pipeline-status');
     const pipeline = document.getElementById('trace-pipeline-deck');
-    const dirContainer = document.getElementById('oracle-directive-container');
+    const dirContainer = document.getElementById('oracle-summary-container');
 
     if (dirContainer) dirContainer.innerHTML = '';
     if (statusEl) statusEl.innerHTML = '<span class="status-running">● AGENT RUNNING MULTI-TOOL PIPELINE</span>';
@@ -670,8 +670,8 @@ export class IgnisOracle {
 
     setTimeout(() => {
       this.resolveStep(4, 'RESOLVED ✓', 'success');
-      if (statusEl) statusEl.innerHTML = '<span class="status-done">● AGENT PIPELINE COMPLETE // DIRECTIVE ISSUED</span>';
-      this.renderFinalDirective(telemetry, physics);
+      if (statusEl) statusEl.innerHTML = '<span class="status-done">● AGENT PIPELINE COMPLETE // SAFETY SUMMARY ISSUED</span>';
+      this.renderFinalSafetySummary(telemetry, physics);
       this.isAuditing = false;
     }, 2500);
   }
@@ -705,7 +705,7 @@ export class IgnisOracle {
 
     const statusEl = document.getElementById('agent-pipeline-status');
     const pipeline = document.getElementById('trace-pipeline-deck');
-    const dirContainer = document.getElementById('oracle-directive-container');
+    const dirContainer = document.getElementById('oracle-summary-container');
 
     if (dirContainer) dirContainer.innerHTML = '';
     if (statusEl) statusEl.innerHTML = `<span class="status-running">● AGENT SIMULATING: ${scenarioKey.toUpperCase()}</span>`;
@@ -723,8 +723,8 @@ export class IgnisOracle {
     } else if (scenarioKey === 'acrylic_window') {
       scenarioTitle = 'ACRYLIC (PMMA) WINDOW AUDIT';
       scenarioThought = `Auditing PMMA viewports in ${telemetry.o2}% O₂ at ${telemetry.pressure} PSI. Thermal pyrolysis depolymerization evaluated.`;
-      scenarioTool = 'NASA PSI-02 (SoFIE-GEL): Demonstrated polymer regression rate scales with (pO₂)^1.25. PMMA bubbles and ejects aerosolized flammable droplets.';
-      scenarioResult = 'DIRECTIVE: Viewport frame must incorporate active nitrogen purge curtain & intumescent edge-char gaskets meeting NASA-STD-6001B.';
+      scenarioTool = 'NASA PSI-25 (BASS-II): Demonstrated polymer regression rate scales with (pO₂)^1.25. PMMA bubbles and ejects aerosolized flammable droplets.';
+      scenarioResult = 'SAFETY SUMMARY: Viewport frame must incorporate active nitrogen purge curtain & intumescent edge-char gaskets meeting NASA-STD-6001B.';
     } else if (scenarioKey === 'silicone_seal') {
       scenarioTitle = 'HATCH SEAL SUBSTITUTION';
       scenarioThought = `Evaluating Dimethyl Silicone elastomer under ${telemetry.o2}% O₂ at ${telemetry.pressure} PSI.`;
@@ -766,7 +766,7 @@ export class IgnisOracle {
     }, 700);
 
     setTimeout(() => {
-      this.resolveStep(2, 'VERIFIED ✓', 'success');
+      this.resolveStep(2, 'RESOLVED ✓', 'success');
       if (statusEl) statusEl.innerHTML = '<span class="status-done">● SCENARIO RESOLUTION COMPLETE</span>';
       
       if (dirContainer) {
@@ -774,7 +774,7 @@ export class IgnisOracle {
           <div class="scenario-result-box mono">
             <div class="box-hdr">
               <span class="res-tag">AGENT ACTION PROTOCOL</span>
-              <span class="res-id">DIRECTIVE #NASA-EMERGENCY-${scenarioKey.toUpperCase()}</span>
+              <span class="res-id">SAFETY SUMMARY #NASA-EMERGENCY-${scenarioKey.toUpperCase()}</span>
             </div>
             <p class="res-body">${scenarioResult}</p>
           </div>
@@ -784,11 +784,11 @@ export class IgnisOracle {
     }, 1400);
   }
 
-  renderFinalDirective(telemetry, physics) {
-    const dirContainer = document.getElementById('oracle-directive-container');
+  renderFinalSafetySummary(telemetry, physics) {
+    const dirContainer = document.getElementById('oracle-summary-container');
     if (!dirContainer) return;
 
-    this.activeDirective = {
+    this.activeSummary = {
       code: "MEMO-ARTEMIS-FIRE-04",
       date: new Date().toISOString(),
       telemetry,
@@ -801,7 +801,7 @@ export class IgnisOracle {
     const densSign = parseFloat(physics.density_shift_pct) >= 0 ? '+' : '';
 
     dirContainer.innerHTML = `
-      <div class="final-directive-card">
+      <div class="final-summary-card">
         
         <!-- Memo Header -->
         <div class="memo-top-row mono">
@@ -809,10 +809,10 @@ export class IgnisOracle {
             <span class="memo-seal">★</span>
             <span class="memo-seal-txt">NASA FLIGHT OPERATIONS DIRECTORATE</span>
           </div>
-          <span class="memo-code">DIRECTIVE // MEMO-ARTEMIS-FIRE-04</span>
+          <span class="memo-code">SAFETY SUMMARY // MEMO-ARTEMIS-FIRE-04</span>
         </div>
 
-        <h3 class="memo-title">FLIGHT SAFETY DIRECTIVE: CABIN FIRE DYNAMICS &amp; MATERIAL QUALIFICATION</h3>
+        <h3 class="memo-title">FLIGHT SAFETY SAFETY SUMMARY: CABIN FIRE DYNAMICS &amp; MATERIAL QUALIFICATION</h3>
 
         <div class="memo-metadata-grid mono">
           <div class="meta-item"><span class="lbl">ENVIRONMENT:</span><span class="val">${telemetry.gravity} // ${telemetry.material.split(' ')[0]}</span></div>
@@ -831,7 +831,7 @@ export class IgnisOracle {
         </div>
 
         <div class="memo-section-block">
-          <h4 class="memo-sub mono">2. VERIFIED PSI CITATIONS</h4>
+          <h4 class="memo-sub mono">2. PSI CITATIONS</h4>
           <div class="memo-citations-list mono">
             <div class="cit-row">
               <span class="cit-id">NASA ${physics.nearestExp.id} (${physics.nearestExp.name}):</span>
@@ -839,7 +839,7 @@ export class IgnisOracle {
               <span class="cit-note">Nearest logged flight experiment envelope at normalized distance ${physics.minDistance}.</span>
             </div>
             <div class="cit-row">
-              <span class="cit-id">NASA PSI-02 (SoFIE-GEL):</span>
+              <span class="cit-id">NASA PSI-25 (BASS-II):</span>
               <a href="https://doi.org/10.2514/1.A35089" target="_blank" rel="noopener" class="cit-link">DOI: 10.2514/1.A35089 ↗</a>
               <span class="cit-note">Observed polymer pyrolysis regression scaling with (pO₂)^1.25.</span>
             </div>
@@ -851,15 +851,15 @@ export class IgnisOracle {
           <ul class="memo-ul mono">
             <li><strong>MATERIAL ACTION:</strong> ${physics.materialAction}</li>
             <li><strong>VENTILATION BASELINE:</strong> Maintain forced recirculating cabin flow ≥ 8.0 cm/s across all avionics bays to avoid smolder stagnation.</li>
-            <li><strong>EXPLORATION MANIFEST:</strong> Manifest the LUCI (Lunar Combustion Investigation) payload aboard the Artemis CLPS surface lander to close the ${telemetry.gravity} ground-truth gap.</li>
+            <li><strong>EXPLORATION MANIFEST:</strong> Manifest the LUCI (Lunar-g Combustion Investigation (LUCI) (planned, not yet in PSI)) payload aboard the Artemis CLPS surface lander to close the ${telemetry.gravity} ground-truth gap.</li>
           </ul>
         </div>
 
         <!-- Export & Action Buttons -->
         <div class="memo-action-deck">
-          <button id="btn-export-directive-txt" class="memo-action-btn primary mono">
+          <button id="btn-export-summary-txt" class="memo-action-btn primary mono">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            <span>Export Official Flight Safety Directive (.TXT)</span>
+            <span>Export Official Flight Safety Flight Safety Summary (.TXT)</span>
           </button>
           <button id="btn-cross-highlight-nodes" class="memo-action-btn secondary mono">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
@@ -871,9 +871,9 @@ export class IgnisOracle {
     `;
 
     // Bind action buttons
-    const exportBtn = document.getElementById('btn-export-directive-txt');
+    const exportBtn = document.getElementById('btn-export-summary-txt');
     if (exportBtn) {
-      exportBtn.addEventListener('click', () => this.exportDirectiveText());
+      exportBtn.addEventListener('click', () => this.exportSafetySummaryText());
     }
 
     const highlightBtn = document.getElementById('btn-cross-highlight-nodes');
@@ -881,11 +881,11 @@ export class IgnisOracle {
       highlightBtn.addEventListener('click', () => this.crossHighlightStarMap());
     }
 
-    // Smooth scroll down to directive
+    // Smooth scroll down to summary
     dirContainer.scrollIntoView({ behavior: 'smooth' });
   }
 
-  exportDirectiveText() {
+  exportSafetySummaryText() {
     const telemetry = this.syncTelemetryDisplay();
     const physics = this.evaluatePhysics(telemetry);
     const po2Sign = parseFloat(physics.pO2_diff_pct) >= 0 ? '+' : '';
@@ -895,7 +895,7 @@ export class IgnisOracle {
 ================================================================================
 NATIONAL AERONAUTICS AND SPACE ADMINISTRATION
 FLIGHT OPERATIONS DIRECTORATE // ARTEMIS CREW SAFETY DIVISION
-DIRECTIVE IDENTIFIER: MEMO-ARTEMIS-FIRE-04
+SAFETY SUMMARY IDENTIFIER: MEMO-ARTEMIS-FIRE-04
 DATE OF ISSUANCE:     ${new Date().toUTCString()}
 CLASSIFICATION:       OFFICIAL FLIGHT COMPLIANCE MEMORANDUM
 ================================================================================
@@ -933,12 +933,12 @@ CLASSIFICATION:       OFFICIAL FLIGHT COMPLIANCE MEMORANDUM
        Maintain forced recirculating velocity >= 8.0 cm/s across all
        avionics bays to prevent hidden smolder stagnation.
    [C] SCIENCE PAYLOAD FLIGHT MANIFEST:
-       Mandate integration of the LUCI (Lunar Combustion Investigation)
+       Mandate integration of the LUCI (Lunar-g Combustion Investigation (LUCI) (planned, not yet in PSI))
        instrument on the Artemis CLPS surface mission.
 
 ISSUED BY:
 IGNIS-SI AUTONOMOUS FLIGHT SAFETY AGENT
-DIRECTIVE VERIFICATION: 100% GROUNDED IN NASA PSI REPOSITORY DATA
+SAFETY SUMMARY VERIFICATION: GROUNDED IN NASA PSI REPOSITORY DATA
 ================================================================================
     `;
 

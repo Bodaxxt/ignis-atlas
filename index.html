@@ -83,14 +83,10 @@
           <span class="inorbit-radar-dot"></span>
           <span class="top-bar-title">IGNIS ATLAS</span>
           <span class="top-bar-sep">//</span>
-          <span class="top-bar-sub">ARTEMIS MISSION CONTROL</span>
-        </div>
-        <div class="top-bar-item hide-mobile">
-          <span class="top-bar-muted">MET:</span>
-          <span class="top-bar-cyan">00:14:49</span>
+          <span class="top-bar-sub">PSI FLIGHT INVESTIGATIONS</span>
         </div>
         <div class="top-bar-item">
-          <span class="inorbit-tag-pill">LIVE PSI REPO</span>
+          <span class="inorbit-tag-pill">PSI REPO</span>
         </div>
       </div>
 
@@ -116,7 +112,7 @@
             of Artemis
           </h2>
           <p class="inorbit-desc-muted">
-            Step into the next phase of cislunar science. Where natural convection ceases and fire safety standards must be rewritten.
+            Step into the next phase of cislunar science. Where fire-safety evidence for lunar conditions is thin.
           </p>
         </div>
 
@@ -128,7 +124,10 @@
             Deterministic parameter screening cross-referencing O₂ concentration, chamber pressure, and material extinction limits.
           </p>
           <div class="inorbit-data-row mono">
-            <span class="inorbit-cyan-badge">HABITAT: 34% O₂ &bull; 10.2 PSI</span>
+            <span class="inorbit-cyan-badge">Expected lunar habitat: at least 30% O2, at most 10.2 psi (NASA Space Apps challenge brief)</span>
+          </div>
+          <div class="hero-solid-o2-stat mono" style="font-size:0.75rem; color:#F59E0B; margin-top:8px; line-height:1.4;">
+            Highest oxygen recorded for solid fuels in the tables we extracted (BASS-II, Saffire-I and II): 22.2%. The BASS and Saffire-III tables record no oxygen.
           </div>
         </div>
 
@@ -139,16 +138,16 @@
               <span class="hud-pin-dot"></span>
               <span class="hud-target-name">Lunar Surface Habitat</span>
             </div>
-            <div class="hud-coord-spec mono">SOUTH POLE BASE // 0.16 g</div>
+            <div class="hud-coord-spec mono">LUNAR REGIME // 0.16 g</div>
             <div class="hud-divider-line"></div>
             <div class="hud-stat-grid mono">
               <div>
                 <span class="stat-k">ATMOSPHERE</span>
-                <span class="stat-v">34.0% O₂ [HIGH]</span>
+                <span class="stat-v">&ge; 30.0% O₂ [TARGET]</span>
               </div>
               <div>
                 <span class="stat-k">PRESSURE</span>
-                <span class="stat-v">10.2 PSI (HYP)</span>
+                <span class="stat-v">&le; 10.2 PSI (HYP)</span>
               </div>
               <div>
                 <span class="stat-k">DATA STATUS</span>
@@ -183,14 +182,14 @@
         <div class="hero-header">
           <div class="hero-status-pill">
             <span class="status-radar-dot"></span>
-            <span>THREE.JS WEBGL KINETIC FLUID BENCHMARK</span>
+            <span>THREE.JS WEBGL Flame illustration</span>
           </div>
           <h2 class="section-title">
             Dynamic Flame Morphology <br />
             <span class="text-gradient">From Buoyant Plume to 0g Diffusion Sphere</span>
           </h2>
           <p class="section-desc" style="max-width:760px; margin:0 auto;">
-            Interactive GLSL Simplex Noise simulation mapping gravity-dependent soot extinction and flame geometry across 1.00g (Earth), 0.38g (Mars), 0.16g (Moon), and 0.00g (Orbital Microgravity).
+            Interactive illustration of how flame shape changes with gravity. Not a measurement and not a simulation.
           </p>
         </div>
 
@@ -226,8 +225,8 @@
               </div>
               <div class="flame-presets" role="group" aria-label="Gravitational Presets">
                 <button type="button" class="preset-btn" data-g="0.0">0.00g (Orbital ISS)</button>
-                <button type="button" class="preset-btn" data-g="0.16">0.16g (Lunar)</button>
-                <button type="button" class="preset-btn" data-g="0.38">0.38g (Martian)</button>
+                <button type="button" class="preset-btn" data-g="0.16">0.16g (Lunar - interpolated illustration)</button>
+                <button type="button" class="preset-btn" data-g="0.38">0.38g (Martian - interpolated illustration)</button>
                 <button type="button" class="preset-btn active" data-g="1.0">1.00g (Earth)</button>
               </div>
             </div>
@@ -268,13 +267,13 @@
         <div class="protocol-header">
           <div class="protocol-badge">
             <span class="protocol-dot"></span>
-            <span>FLIGHT ARCHITECTURE // ARTE-MIS MISSION PROTOCOL</span>
+            <span>FLIGHT ARCHITECTURE // MISSION PROTOCOL</span>
           </div>
           <h2 class="protocol-title">
             The Physics Behind the <span class="text-gradient">Critical Gap</span>
           </h2>
           <p class="protocol-subtitle">
-            Why terrestrial fire standards fail 80,000 miles out—and where NASA empirical ground-truth ends.
+            Why Earth-gravity fire tests may not transfer to low gravity—and where NASA empirical ground-truth ends.
           </p>
         </div>
 
@@ -288,12 +287,11 @@
               <span class="pill-id mono">01 // CISLUNAR</span>
             </div>
             <h3 class="card-title">A fire alarm 80,000 miles out</h3>
-            <blockquote class="card-quote">
-              &ldquo;Out there, between the Earth and the Moon, there is no back door. If something catches fire, you cannot step outside.&rdquo;
-              <cite>&mdash; Artemis II Mission Evaluation Directive</cite>
-            </blockquote>
+            <p class="card-quote" style="border-left:2px solid #00F0FF; padding-left:12px; margin-bottom:12px; font-style:italic;">
+              The Artemis II commander said a fire alarm about 80,000 miles from home gets a crew's attention fast (as quoted in the NASA Space Apps challenge brief).
+            </p>
             <p class="card-desc">
-              On Earth, evacuation takes seconds. In cislunar transit and on the lunar surface, fire is an existential crew threat. Extinguishing combustion and preserving cabin scrubbers demands proactive materials screening before launch.
+              In cislunar transit and on the lunar surface, fire is an existential crew threat. Extinguishing combustion demands proactive materials screening before launch.
             </p>
           </article>
 
@@ -312,7 +310,7 @@
               </div>
               <div class="contrast-item">
                 <span class="contrast-tag tag-micro">0.00g Microgravity</span>
-                <p>Zero buoyancy. Oxygen reaches fuel strictly by molecular diffusion, forming a soot-free, calm spherical blue dome.</p>
+                <p>Zero buoyancy. Oxygen reaches fuel strictly by molecular diffusion, forming a calm, near-spherical bluish flame.</p>
               </div>
             </div>
           </article>
@@ -326,20 +324,16 @@
             </div>
             <h3 class="card-title">Exploration Atmosphere</h3>
             <p class="card-desc-compact">
-              Lunar surface habitats operate at hypobaric pressure to enable frequent, rapid extravehicular activities (EVAs).
+              Lunar surface habitats are expected to operate at reduced pressure to enable frequent extravehicular activities (EVAs).
             </p>
             <div class="habitat-metrics-grid">
               <div class="metric-pill">
-                <span class="metric-num mono">30–34%</span>
+                <span class="metric-num mono">&ge; 30%</span>
                 <span class="metric-sub">Oxygen Concentration</span>
               </div>
               <div class="metric-pill">
                 <span class="metric-num mono">&le; 10.2 PSI</span>
                 <span class="metric-sub">Cabin Pressure (Hypobaric)</span>
-              </div>
-              <div class="metric-pill">
-                <span class="metric-num mono">&lt; 20 min</span>
-                <span class="metric-sub">EVA Pre-Breathe (vs 4h ISS)</span>
               </div>
             </div>
           </article>
@@ -360,7 +354,7 @@
               </div>
             </div>
             <p class="card-desc">
-              NASA flight combustion data ends at zero-g. Flammability boundary under lunar gravity is completely unmeasured in PSI. Flagged as primary benchmark for LUCI / FM2 lunar payload.
+              NASA flight combustion data ends at zero-g. Flammability boundary under lunar gravity is completely unmeasured in PSI. Flagged as primary benchmark for Lunar-g Combustion Investigation (LUCI) (planned, not yet in PSI) and Flammability of Materials on the Moon (FM2) (planned, not yet in PSI) payload.
             </p>
           </article>
         </div>
@@ -403,7 +397,7 @@
         <!-- In-dashboard Cognitive Oracle Trigger -->
         <button class="section-tab-btn oracle-tab-badge trigger-open-oracle" aria-label="Open Ignis Cognitive Safety Oracle">
           <span class="oracle-live-pulse mini"></span>
-          <span>Flight Safety Agent</span>
+          <span>Guided tour (scripted)</span>
         </button>
       </div>
 
@@ -412,8 +406,8 @@
         <div class="section-header">
           <div>
             <div class="section-badge-row">
-              <span class="hud-pill">SPRINT 2 TELEMETRY MAP</span>
-              <span class="hud-meta mono">DATABASE: NASA PSI VERIFIED // 5 DATASETS</span>
+              <span class="hud-pill">TELEMETRY MAP</span>
+              <span class="hud-meta mono" id="atlas-db-count-badge">DATABASE: NASA PSI // FLIGHT INVESTIGATIONS</span>
             </div>
             <h2 class="section-title">Atmospheric Star-Map Matrix</h2>
             <p class="section-desc">
@@ -421,10 +415,10 @@
             </p>
           </div>
           <div class="filter-legend" role="region" aria-label="Chart legend">
-            <div class="legend-item"><span class="glyph-sample glyph-square"></span><span>Solid Fuel (BASS, SoFIE)</span></div>
+            <div class="legend-item"><span class="glyph-sample glyph-square"></span><span>Solid Fuel</span></div>
             <div class="legend-item"><span class="glyph-sample glyph-diamond"></span><span>Liquid Fuel (FLEX-2)</span></div>
             <div class="legend-item"><span class="glyph-sample glyph-circle"></span><span>Gas Fuel (ACME)</span></div>
-            <div class="legend-item"><span class="legend-swatch swatch-lunar" aria-hidden="true"></span><span>Lunar Spec (&ge;30% O₂, &le;10.2 psi)</span></div>
+            <div class="legend-item"><span class="legend-swatch swatch-lunar" aria-hidden="true"></span><span>Expected lunar habitat (&ge;30% O₂, &le;10.2 psi)</span></div>
           </div>
         </div>
 
@@ -498,7 +492,7 @@
           </div>
         </div>
 
-        <div class="passport-sprint2-grid">
+        <div class="passport-grid">
           <!-- ECLSS Controls Panel -->
           <div class="eclss-controls-card glass-card">
             <div class="card-title-row">
@@ -506,7 +500,7 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                 <h3>ECLSS Atmospheric Telemetry</h3>
               </div>
-              <span class="hud-tag">LIVE SIMULATOR</span>
+              <span class="hud-tag">SIMULATOR</span>
             </div>
 
             <!-- Flight Environment Presets -->
@@ -517,9 +511,9 @@
                   <span class="preset-name">ISS Cabin</span>
                   <span class="preset-specs mono">21% O₂ &bull; 14.7 psi &bull; 0g</span>
                 </button>
-                <button type="button" class="env-preset-btn active" id="preset-lunar" data-o2="34.0" data-p="8.2" data-flow="4.0" data-g="lunar">
+                <button type="button" class="env-preset-btn active" id="preset-lunar" data-o2="30.0" data-p="8.2" data-flow="4.0" data-g="lunar">
                   <span class="preset-name">Lunar Base</span>
-                  <span class="preset-specs mono">34% O₂ &bull; 8.2 psi &bull; 0.16g</span>
+                  <span class="preset-specs mono">&ge; 30% O₂ &bull; 8.2 psi &bull; 0.16g</span>
                 </button>
                 <button type="button" class="env-preset-btn" id="preset-mars" data-o2="28.0" data-p="9.5" data-flow="3.0" data-g="mars">
                   <span class="preset-name">Mars Habitat</span>
@@ -610,7 +604,7 @@
             </svg>
           </div>
 
-          <!-- Material Safety Passport Cards Grid (Sprint 2 Core) -->
+          <!-- Material Safety Passport Cards Grid -->
           <div class="passport-cards-column">
             <div class="column-header">
               <div>
@@ -704,7 +698,7 @@
             <div class="gap-card glass-card">
               <div class="gap-badge-pill gap-pill-amber">UNMAPPED REGIME</div>
               <h3>Lunar Partial Gravity (0.16 g) Void</h3>
-              <p class="gap-card-stat mono">0 Verified Envelopes in PSI</p>
+              <p class="gap-card-stat mono">0 Flight Investigations in PSI</p>
               <p>
                 Querying NASA PSI for "Reduced Gravity" yields 0 standardized flight investigations. Natural convection does not cease at 0.16g; instead, it enters an unmodeled boundary regime between ISS diffusion spheres and Earth plumes.
               </p>
@@ -718,15 +712,15 @@
               <h3>Exploration Atmosphere Extremes</h3>
               <p class="gap-card-stat mono">O₂ &ge; 30% with Pressure &le; 10.2 psi</p>
               <p>
-                Simultaneous oxygen enrichment and low pressure accelerates chemical oxidation kinetics while dampening gas thermal conductivity. Public test runs at this exact intersection remain sparse.
+                Oxygen enrichment and low pressure accelerate chemical oxidation kinetics while dampening gas thermal conductivity. Public test runs at this exact intersection remain sparse.
               </p>
               <div class="gap-action-tag mono">
-                COORDINATE PINPOINT: O₂ 34.0%, P 8.2 psi (Distance: 0.118 from ACME)
+                COORDINATE PINPOINT: O₂ &ge; 30%, P &le; 10.2 psi (Distance: 0.118 from ACME)
               </div>
             </div>
           </div>
 
-          <!-- Earth Spin-Off Card (Sprint 2 Dedicated Deliverable) -->
+          <!-- Earth Spin-Off Card -->
           <div class="spinoff-card glass-card">
             <div class="spinoff-header">
               <div class="spinoff-badge-row">
@@ -777,7 +771,7 @@
       <div class="drawer-header">
         <div class="drawer-badge-row">
           <span class="hud-pill" id="drawer-id">EXP-00</span>
-          <span class="hud-status-badge" id="drawer-status-chip">VERIFIED FLIGHT RECORD</span>
+          <span class="hud-status-badge" id="drawer-status-chip">extracted from PSI table, verification pending</span>
         </div>
         <button id="drawer-close-btn" class="icon-btn close-btn" aria-label="Close experiment details">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -787,7 +781,7 @@
       <div class="drawer-content">
         <div class="drawer-hero-banner" id="drawer-image-banner">
           <div class="banner-overlay"></div>
-          <div class="banner-badge mono" id="drawer-facility-badge">ISS Destiny Laboratory // CIR</div>
+          <div class="banner-badge mono" id="drawer-facility-badge">NASA Glenn Research Center</div>
         </div>
 
         <h3 id="drawer-title" class="drawer-title">Experiment Title</h3>
@@ -854,7 +848,7 @@
     </div>
   </div>
 
-  <!-- JUDGE DEMO MODE / GUIDED TOUR HUD OVERLAY (Sprint 3 Core) -->
+  <!-- JUDGE DEMO MODE / GUIDED TOUR HUD OVERLAY -->
   <aside id="tour-hud-overlay" class="tour-hud-overlay" aria-live="assertive" hidden>
     <div class="tour-hud-inner glass-card">
       <div class="tour-hud-header">
@@ -874,7 +868,7 @@
         </div>
       </div>
       <p id="tour-hud-desc" class="tour-hud-desc">
-        Auto-selecting ISS Cabin baseline (21% O₂, 14.7 psi, 0.00g). PMMA acrylic evaluates as COVERED inside verified BASS/SoFIE boundaries.
+        Auto-selecting ISS Cabin baseline (21% O₂, 14.7 psi, 0.00g). PMMA acrylic evaluates as COVERED inside BASS-II flight boundaries.
       </p>
       <div class="tour-progress-bar">
         <div id="tour-progress-fill" class="tour-progress-fill"></div>
@@ -882,7 +876,7 @@
     </div>
   </aside>
 
-  <!-- METHODOLOGY & SCIENTIFIC LIMITS MODAL (Sprint 3 Transparent Disclosures) -->
+  <!-- METHODOLOGY & SCIENTIFIC LIMITS MODAL -->
   <div id="modal-about" class="modal" role="dialog" aria-modal="true" aria-labelledby="about-title" aria-hidden="true">
     <div class="modal-backdrop" id="modal-backdrop" tabindex="-1"></div>
     <div class="modal-card glass-card" role="document">
@@ -907,30 +901,29 @@
         <section class="modal-section">
           <h4>What We Do</h4>
           <p>
-            We systematically index and benchmark empirical boundary envelopes from verified orbital investigations:
+            We systematically index and benchmark empirical boundary envelopes from PSI flight investigations:
           </p>
           <ul class="bullet-list">
             <li><strong>BASS &amp; BASS-II:</strong> Solid fuel burning and extinction limits in the Microgravity Science Glovebox (MSG).</li>
-            <li><strong>Saffire Series (I–VI):</strong> Large-scale fabric and solid composite combustion in expendable Cygnus resupply vehicles.</li>
+            <li><strong>Saffire Series:</strong> Large-scale fabric and solid composite combustion in expendable Cygnus resupply vehicles.</li>
             <li><strong>FLEX &amp; FLEX-2:</strong> Isolated droplet burning, cool flames, and radiative extinction in the Combustion Integrated Rack (CIR).</li>
-            <li><strong>ACME (CFI-G / CLD Flame):</strong> Gaseous spherical diffusion flames quantifying soot-free extinction limits in microgravity.</li>
-            <li><strong>SoFIE (GEL / MIST / SMiFF):</strong> Standardized solid fuel ignition and extinction benchmarks for future spaceflight materials.</li>
+            <li><strong>ACME (CFI-G / CLD Flame):</strong> Gaseous spherical diffusion flames quantifying extinction limits in microgravity.</li>
           </ul>
         </section>
 
         <section class="modal-section modal-alert-section">
           <h4 class="text-near">Strict Scientific Disclaimers &amp; Operational Boundaries</h4>
           <div class="modal-disclaimer-box">
-            <p><strong>1. Engineering Decision Support Only — Not NASA-STD-6001 Certification:</strong> Ignis Atlas is an early-stage screening aid. It does NOT constitute formal safety qualification or replace compliance certification under NASA-STD-6001 (Test 1 upward flame propagation, Test 2 toxic offgassing, or Test 7 downward smoldering) or formal Aerospace Flight Safety Reviews.</p>
+            <p><strong>1. Engineering Decision Support Only — Not NASA-STD-6001 Certification:</strong> Ignis Atlas is an early-stage screening aid. It does NOT constitute formal safety qualification or replace compliance certification under NASA-STD-6001 (Test 1, upward flame propagation at 1g) or formal Aerospace Flight Safety Reviews.</p>
             <p><strong>2. Deterministic Envelopes — Zero Hallucinated Probabilities:</strong> This system does NOT predict ignition likelihood, fire occurrence probability, or flame spread velocity. Flammability screening is deterministic based strictly on whether cabin parameters reside inside, near, or outside empirical database bounds.</p>
-            <p><strong>3. The Partial-Gravity Void (0.16g Moon / 0.38g Mars):</strong> Querying the NASA PSI repository yields <strong>zero empirical reduced-gravity investigations</strong>. Natural buoyant convection does not cease on the Moon; rather, it transitions into an unmapped intermediate regime between orbital diffusion spheres and terrestrial buoyant plumes. All lunar predictions remain strictly categorized as <em>Extrapolated</em> or <em>Data Gaps</em>, highlighting the urgent mission need for the upcoming <strong>LUCI (Lunar Combustion Investigation)</strong> payload.</p>
+            <p><strong>3. The Partial-Gravity Void (0.16g Moon / 0.38g Mars):</strong> Querying the NASA PSI repository yields <strong>zero empirical reduced-gravity investigations</strong>. Natural buoyant convection does not cease on the Moon; rather, it transitions into an unmapped intermediate regime between orbital diffusion spheres and terrestrial buoyant plumes. All lunar predictions remain strictly categorized as <em>Extrapolated</em> or <em>Data Gaps</em>, highlighting the urgent mission need for the upcoming <strong>Lunar-g Combustion Investigation (LUCI) (planned, not yet in PSI)</strong> and <strong>Flammability of Materials on the Moon (FM2) (planned, not yet in PSI)</strong> payloads.</p>
           </div>
         </section>
 
         <section class="modal-section">
           <h4>Data Attribution &amp; Open Science</h4>
           <p>
-            All research records, bounding coordinates, and hardware citations originate exclusively from public domain datasets in the <a href="https://psi.nasa.gov" target="_blank" rel="noopener noreferrer">NASA Physical Sciences Informatics (PSI)</a> repository and corresponding peer-reviewed journals under CC0 / NASA Open Science directives.
+            Data: NASA Physical Sciences Informatics (CC0), cited by investigation ID and DOI.
           </p>
         </section>
       </div>
@@ -945,12 +938,12 @@
     <div class="footer-inner">
       <div class="footer-disclaimer">
         <span class="disclaimer-badge">AEROSPACE NOTICE</span>
-        Screening tool built on public NASA PSI data. Not a safety certification. Does not predict fires or certify flight hardware.
+        Unofficial student project for NASA Space Apps Cairo 2026. Not affiliated with or endorsed by NASA. Screening tool; not a safety certification; does not predict fires.
       </div>
       <div class="footer-meta mono">
         <span>NASA Space Apps Challenge 2026</span>
         <span>&bull;</span>
-        <span>PSI Verified Envelopes v3.0 // Sprint 3 Production</span>
+        <span>PSI Flight Investigations Repository</span>
       </div>
     </div>
   </footer>
