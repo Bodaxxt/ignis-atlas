@@ -7,7 +7,7 @@
  * 2. Star-Map Scatter Plot:
  *    - Midpoint coordinates plotting for each active experiment.
  *    - Distinct fuel state glyphs: Solid (Square), Liquid (Diamond), Gas (Circle).
- *    - Amber Dashed Bounding Box for Lunar Habitat Zone (O2 >= 30%, P <= 10.2 psi).
+ *    - Amber Dashed Bounding Box for Lunar Habitat Zone (O2 >= 30%, P <= 8.2 psi).
  *    - Sliding Source Drawer on click with DOI, PSI link, and telemetry gauges.
  * 3. ECLSS Controls & Material Safety Passport Engine:
  *    - Sliders (O2%, Pressure, Airflow) & Gravity Mode buttons.
@@ -138,7 +138,7 @@ export class IgnisAtlas {
         <!-- Coordinate Grid & Axes -->
         ${this.buildGridAndAxes()}
 
-        <!-- Tactical Highlighted Perimeter for Lunar Habitat Zone (O2 >= 30%, P <= 10.2 psi) -->
+        <!-- Tactical Highlighted Perimeter for Lunar Habitat Zone (O2 >= 30%, P <= 8.2 psi) -->
         ${this.buildLunarHabitatZone()}
 
         <!-- Fiber-Line Telemetry Network Connecting Tested Flight Envelopes -->
@@ -250,7 +250,7 @@ export class IgnisAtlas {
   buildLunarHabitatZone() {
     const x1 = this.scaleX(30.0);
     const x2 = this.scaleX(38.0);
-    const yTop = this.scaleY(10.2);
+    const yTop = this.scaleY(8.2);
     const yBottom = this.scaleY(6.0);
 
     const width = x2 - x1;
@@ -272,7 +272,7 @@ export class IgnisAtlas {
           LUNAR HABITAT ZONE [TARGET]
         </text>
         <text x="${x1 + 14}" y="${yTop + 40}" class="chart-axis-label mono" fill="#94A3B8">
-          O₂ &ge; 30.0% &bull; P &le; 10.2 PSI
+          O₂ &ge; 30.0% &bull; P &le; 8.2 PSI
         </text>
       </g>
     `;

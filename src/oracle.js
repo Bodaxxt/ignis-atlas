@@ -62,7 +62,7 @@ export class IgnisOracle {
               <span class="oracle-radar-beacon"></span>
               <h2 class="oracle-h2 mono">IGNIS-SI // AUTONOMOUS SAFETY ORACLE</h2>
             </div>
-            <p class="oracle-sub-meta mono">Agentic Multi-Tool Inference Engine • NASA-STD-6001B Protocol</p>
+            <p class="oracle-sub-meta mono">NASA's Exploration Atmosphere studies use 8.2 psia and 34% O2 (NASA NTRS 20230015594)</p>
           </div>
           <div class="oracle-header-actions">
             <button id="oracle-reset-btn" class="oracle-mini-btn mono" title="Reset Agent Memory">
@@ -79,7 +79,7 @@ export class IgnisOracle {
           <div class="telemetry-pill-strip" id="oracle-telemetry-strip">
             <span class="t-cell">O₂: <strong id="t-disp-o2">34.0%</strong></span>
             <span class="t-sep">|</span>
-            <span class="t-cell">P: <strong id="t-disp-p">10.2 PSI</strong></span>
+            <span class="t-cell">P: <strong id="t-disp-p">8.2 PSI</strong></span>
             <span class="t-sep">|</span>
             <span class="t-cell">g: <strong id="t-disp-g">0.16g</strong></span>
             <span class="t-sep">|</span>
@@ -103,7 +103,7 @@ export class IgnisOracle {
             <!-- Preset Mission Profile Chips -->
             <div class="tuning-presets-bar mono">
               <span class="presets-label">FLIGHT PROFILES:</span>
-              <button type="button" class="preset-pill active" data-o2="34.0" data-p="10.2" data-g="0.16g" data-flow="10.0" data-mat="PMMA (Acrylic Window)">Artemis Lunar (34% / 10.2 PSI)</button>
+              <button type="button" class="preset-pill active" data-o2="34.0" data-p="8.2" data-g="0.16g" data-flow="10.0" data-mat="PMMA (Acrylic Window)">Lunar Exploration (34% O₂ / 8.2 psia)</button>
               <button type="button" class="preset-pill" data-o2="21.0" data-p="14.7" data-g="0g" data-flow="20.0" data-mat="Cotton-Fiberglass Fabric (Sibal)">ISS Cabin (21% / 14.7 PSI)</button>
               <button type="button" class="preset-pill" data-o2="100.0" data-p="4.3" data-g="0g" data-flow="0.0" data-mat="Nomex Aramid">Spacesuit EVA (100% / 4.3 PSI)</button>
               <button type="button" class="preset-pill" data-o2="30.0" data-p="8.2" data-g="0.38g" data-flow="5.0" data-mat="Silicone Rubber (Hatch Seals)">Mars Habitat (30% / 8.2 PSI)</button>
@@ -130,12 +130,12 @@ export class IgnisOracle {
               <div class="control-box">
                 <div class="control-top">
                   <label for="agent-slider-p" class="c-label">TOTAL PRESSURE</label>
-                  <span class="c-val" id="agent-val-p">10.2 PSI</span>
+                  <span class="c-val" id="agent-val-p">8.2 PSI</span>
                 </div>
-                <input type="range" id="agent-slider-p" min="2.0" max="16.0" step="0.1" value="10.2" class="agent-slider" />
+                <input type="range" id="agent-slider-p" min="2.0" max="16.0" step="0.1" value="8.2" class="agent-slider" />
                 <div class="c-hints">
                   <span>4.3 PSI (EVA)</span>
-                  <span>8.2–10.2 (Exploration)</span>
+                  <span>8.2 psia (Exploration)</span>
                   <span>14.7 PSI (1 atm)</span>
                 </div>
               </div>
@@ -367,11 +367,11 @@ export class IgnisOracle {
           if (selectG) selectG.value = '0.16g';
         } else if (scenario === 'acrylic_window') {
           if (sliderO2) sliderO2.value = '34.0';
-          if (sliderP) sliderP.value = '10.2';
+          if (sliderP) sliderP.value = '8.2';
           if (selectMat) selectMat.selectedIndex = 0; // PMMA
         } else if (scenario === 'silicone_seal') {
           if (sliderO2) sliderO2.value = '34.0';
-          if (sliderP) sliderP.value = '10.2';
+          if (sliderP) sliderP.value = '8.2';
           if (selectMat) selectMat.selectedIndex = 1; // Silicone
         } else if (scenario === 'toxic_smolder') {
           if (sliderFlow) sliderFlow.value = '2.0';
@@ -420,7 +420,7 @@ export class IgnisOracle {
     const passportFlow = document.getElementById('passport-airflow');
 
     const o2 = sliderO2 ? parseFloat(sliderO2.value).toFixed(1) : (passportO2 ? parseFloat(passportO2.value).toFixed(1) : '34.0');
-    const p = sliderP ? parseFloat(sliderP.value).toFixed(1) : (passportP ? parseFloat(passportP.value).toFixed(1) : '10.2');
+    const p = sliderP ? parseFloat(sliderP.value).toFixed(1) : (passportP ? parseFloat(passportP.value).toFixed(1) : '8.2');
     const g = selectG ? selectG.value : '0.16g';
     const flow = sliderFlow ? parseFloat(sliderFlow.value).toFixed(1) : (passportFlow ? parseFloat(passportFlow.value).toFixed(1) : '10.0');
     const mat = selectMat ? selectMat.value : 'PMMA (Acrylic Window)';
