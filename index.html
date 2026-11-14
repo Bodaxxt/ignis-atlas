@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IGNIS ATLAS — NASA PSI Combustion Screening Platform</title>
+  <meta name="description" content="Aerospace screening architecture cross-referencing NASA Physical Sciences Informatics microgravity combustion research against lunar exploration mission envelopes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <!-- Accessible Skip Navigation -->
+  <a href="#atlas-main-view" class="skip-link">Skip to Screening Atlas</a>
+
+  <!-- Ambient Aerospace Atmospheric Lighting (Layers.ai aesthetic) -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+  <div class="ambient-grid-lines" aria-hidden="true"></div>
+
+  <!-- App Header: High-End InOrbit Minimalist Floating Navigation Bar -->
+  <header class="app-header inorbit-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="#hero" class="brand-inorbit-link" aria-label="Ignis Atlas Home">
+          <span class="inorbit-logo-text">ignis<span class="inorbit-planet-glyph" aria-hidden="true"></span>atlas</span>
+        </a>
+      </div>
+
+      <!-- Navigation Tabs: Cyber-Aerospace Compact Floating Pill Style -->
+      <nav class="nav-tabs inorbit-nav-tabs" role="tablist" aria-label="Primary Navigation">
+        <button id="tab-atlas" role="tab" aria-selected="true" aria-controls="view-atlas" tabindex="0" class="tab-btn active">
+          <span class="nav-indicator-dot" aria-hidden="true"></span>
+          <span>Overview / Atlas</span>
+        </button>
+        <button id="tab-passport" role="tab" aria-selected="false" aria-controls="view-passport" tabindex="-1" class="tab-btn">
+          <span class="nav-indicator-dot" aria-hidden="true"></span>
+          <span>Mission Passport</span>
+        </button>
+        <button id="tab-gaps" role="tab" aria-selected="false" aria-controls="view-gaps" tabindex="-1" class="tab-btn">
+          <span class="nav-indicator-dot" aria-hidden="true"></span>
+          <span>Gaps &amp; Spin-Offs</span>
+        </button>
+        <button id="btn-about" class="tab-btn" aria-haspopup="dialog" aria-controls="modal-about">
+          <span>About</span>
+        </button>
+      </nav>
+
+      <div class="header-actions inorbit-header-actions">
+        <!-- Prominent Tactical AI Cognitive Safety Oracle Trigger -->
+        <button id="btn-open-oracle" class="inorbit-action-pill oracle-trigger-pill mono" aria-label="Open Ignis Cognitive Safety Oracle Console" title="Cognitive Safety AI Terminal">
+          <span class="oracle-live-pulse" aria-hidden="true"></span>
+          <img src="/assets/images/agent_avatar_orb.png" alt="" class="nav-orb-mini" />
+          <span class="oracle-btn-text">IGNIS FLIGHT SAFETY AGENT</span>
+          <span class="oracle-status-tag">ACTIVE</span>
+        </button>
+
+        <button id="btn-judge-demo" class="inorbit-action-pill mono" aria-label="Launch 30s evaluation tour">
+          <span class="inorbit-action-dot"></span>
+          <span>EVALUATION TOUR</span>
+        </button>
+        <button id="theme-toggle" class="inorbit-icon-btn" aria-label="Toggle visual theme" title="Switch Theme">
+          <svg class="theme-icon-dark" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="theme-icon-light" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="main-layout">
+    <!-- HERO SECTION: InOrbit Space Design Layout -->
+    <section class="inorbit-hero-container" id="hero" aria-label="Hero: InOrbit Space Screening Terminal">
+      <!-- Background Astronaut Visual Image -->
+      <div class="inorbit-hero-backdrop">
+        <img src="/assets/inorbit-hero.jpg" alt="InOrbit Astronaut in Deep Space" class="inorbit-hero-bg-img" />
+        <div class="inorbit-backdrop-vignette"></div>
+      </div>
+
+      <!-- Top InOrbit Floating Mission Bar -->
+      <div class="inorbit-top-bar glass-pill mono">
+        <div class="top-bar-item">
+          <span class="inorbit-radar-dot"></span>
+          <span class="top-bar-title">IGNIS ATLAS</span>
+          <span class="top-bar-sep">//</span>
+          <span class="top-bar-sub">ARTEMIS MISSION CONTROL</span>
+        </div>
+        <div class="top-bar-item hide-mobile">
+          <span class="top-bar-muted">MET:</span>
+          <span class="top-bar-cyan">00:14:49</span>
+        </div>
+        <div class="top-bar-item">
+          <span class="inorbit-tag-pill">LIVE PSI REPO</span>
+        </div>
+      </div>
+
+      <!-- InOrbit 4-Quadrant Hero Typography & Telemetry Layout -->
+      <div class="inorbit-grid-layout">
+        <!-- Top Left: Grand Main Heading -->
+        <div class="inorbit-block block-top-left">
+          <h1 class="inorbit-display-title">
+            Explore<br />
+            the wonder<br />
+            of space safety
+          </h1>
+          <p class="inorbit-desc-muted">
+            Screening NASA's Physical Sciences Informatics (PSI) microgravity combustion records against lunar exploration envelopes.
+          </p>
+        </div>
+
+        <!-- Top Right: Exploration Mission Objective -->
+        <div class="inorbit-block block-top-right">
+          <h2 class="inorbit-subheading">
+            Explore the<br />
+            Infinite Horizons<br />
+            of Artemis
+          </h2>
+          <p class="inorbit-desc-muted">
+            Step into the next phase of cislunar science. Where natural convection ceases and fire safety standards must be rewritten.
+          </p>
+        </div>
+
+        <!-- Bottom Left: Perspective & Callout -->
+        <div class="inorbit-block block-bottom-left">
+          <span class="inorbit-meta-label mono">SYSTEM ARCHITECTURE</span>
+          <h3 class="inorbit-small-title">Broaden Your Perspective</h3>
+          <p class="inorbit-small-desc">
+            Deterministic parameter screening cross-referencing O₂ concentration, chamber pressure, and material extinction limits.
+          </p>
+          <div class="inorbit-data-row mono">
+            <span class="inorbit-cyan-badge">HABITAT: 34% O₂ &bull; 10.2 PSI</span>
+          </div>
+        </div>
+
+        <!-- Bottom Right: Planetary Discovery HUD Callouts -->
+        <div class="inorbit-block block-bottom-right">
+          <div class="inorbit-planet-hud-card glass-card">
+            <div class="hud-card-top-row">
+              <span class="hud-pin-dot"></span>
+              <span class="hud-target-name">Lunar Surface Habitat</span>
+            </div>
+            <div class="hud-coord-spec mono">SOUTH POLE BASE // 0.16 g</div>
+            <div class="hud-divider-line"></div>
+            <div class="hud-stat-grid mono">
+              <div>
+                <span class="stat-k">ATMOSPHERE</span>
+                <span class="stat-v">34.0% O₂ [HIGH]</span>
+              </div>
+              <div>
+                <span class="stat-k">PRESSURE</span>
+                <span class="stat-v">10.2 PSI (HYP)</span>
+              </div>
+              <div>
+                <span class="stat-k">DATA STATUS</span>
+                <span class="stat-v text-cyan">CRITICAL GAP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center Bottom: Iconic InOrbit Circular "Explore" Trigger Button -->
+        <div class="inorbit-center-action">
+          <a href="#views-container" class="inorbit-explore-disc" id="btn-hero-explore" aria-label="Explore Atlas Screening Engine">
+            <!-- Pulsing outer radar shockwave -->
+            <div class="disc-shockwave-ring" aria-hidden="true"></div>
+            <!-- Secondary rotating dashed technical ring -->
+            <div class="disc-dashed-tech-ring" aria-hidden="true"></div>
+            <!-- Glass core disc with futuristic HUD elements -->
+            <div class="disc-glass-core">
+              <span class="disc-main-title">Explore</span>
+              <div class="disc-animated-arrow-wrap">
+                <svg class="disc-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D FLAME LABORATORY SECTION: Morphing Microgravity Combustion Physics -->
+    <section class="flame-lab-section" id="flame-lab" aria-label="3D Morphing microgravity combustion physics stage">
+      <div class="hero-inner">
+        <div class="hero-header">
+          <div class="hero-status-pill">
+            <span class="status-radar-dot"></span>
+            <span>THREE.JS WEBGL KINETIC FLUID BENCHMARK</span>
+          </div>
+          <h2 class="section-title">
+            Dynamic Flame Morphology <br />
+            <span class="text-gradient">From Buoyant Plume to 0g Diffusion Sphere</span>
+          </h2>
+          <p class="section-desc" style="max-width:760px; margin:0 auto;">
+            Interactive GLSL Simplex Noise simulation mapping gravity-dependent soot extinction and flame geometry across 1.00g (Earth), 0.38g (Mars), 0.16g (Moon), and 0.00g (Orbital Microgravity).
+          </p>
+        </div>
+
+        <!-- 3D Flame Interactive Stage: Aerospace CIR-MDCA Inspection Chamber Viewport -->
+        <div class="flame-stage-wrapper">
+          <div class="chamber-viewport-bezel">
+            <!-- Inspection Chamber HUD Corner Telemetry -->
+            <div class="chamber-telemetry-badge mono">
+              <span class="chamber-rec-dot"></span>
+              <span>CHAMBER: CIR-MDCA // REGIME: BUOYANCY vs DIFFUSION</span>
+            </div>
+
+            <!-- Aerospace Reticle Corner Screws & Alignment Marks -->
+            <div class="chamber-screw chamber-screw-tl" aria-hidden="true"></div>
+            <div class="chamber-screw chamber-screw-tr" aria-hidden="true"></div>
+            <div class="chamber-screw chamber-screw-bl" aria-hidden="true"></div>
+            <div class="chamber-screw chamber-screw-br" aria-hidden="true"></div>
+            <div class="chamber-ticks-reticle" aria-hidden="true"></div>
+            <div class="chamber-glass-glare" aria-hidden="true"></div>
+
+            <!-- Canvas Viewport -->
+            <div id="flame-canvas-container" class="flame-canvas-container" role="img" aria-label="Microgravity Combustion Physics Stage: 1g Buoyant Teardrop to 0g Spherical Diffusion Flame">
+            </div>
+          </div>
+
+          <!-- Flame Telemetry Controls HUD (Layers.ai card design) -->
+          <div class="flame-controls-card glass-card">
+            <div class="flame-control-row">
+              <div class="flame-stat">
+                <span class="stat-label">GRAVITATIONAL ACCELERATION</span>
+                <span id="gravity-readout-val" class="stat-value mono">1.00 g</span>
+                <span id="gravity-regime-label" class="stat-sub">1.0g Earth Gravity &bull; Buoyant Convective Plume</span>
+              </div>
+              <div class="flame-presets" role="group" aria-label="Gravitational Presets">
+                <button type="button" class="preset-btn" data-g="0.0">0.00g (Orbital ISS)</button>
+                <button type="button" class="preset-btn" data-g="0.16">0.16g (Lunar)</button>
+                <button type="button" class="preset-btn" data-g="0.38">0.38g (Martian)</button>
+                <button type="button" class="preset-btn active" data-g="1.0">1.00g (Earth)</button>
+              </div>
+            </div>
+
+            <div class="slider-container">
+              <label for="flame-g-slider" class="visually-hidden">Adjust Gravity between 0g and 1g</label>
+              <input type="range" id="flame-g-slider" min="0" max="1" step="0.01" value="1" class="g-slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1" />
+              <div class="slider-marks mono" aria-hidden="true">
+                <span>0.00 g (Spherical diffusion)</span>
+                <span>0.16 g (Lunar partial)</span>
+                <span>1.00 g (Buoyant draft)</span>
+              </div>
+            </div>
+
+            <div class="caption-notice">
+              <span class="notice-badge">PHYSICAL PRINCIPLE</span>
+              <span>Morphological transition visualization. Illustration, not a numerical fluid simulation.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCROLL STORY: 4 Floating Liquid Glass Cards over Glowing Planetary Horizon Arc -->
+    <section class="story-section protocol-story-section" id="story" aria-label="Scientific Narrative: Artemis Protocol & Mission Physics">
+      <!-- Background Giant Typography -->
+      <div class="protocol-bg-text" aria-hidden="true">P R O T O C O L</div>
+
+      <!-- Glowing Planetary Horizon Arc -->
+      <div class="planetary-horizon-wrap" aria-hidden="true">
+        <div class="planetary-horizon-arc">
+          <div class="planetary-horizon-glow"></div>
+        </div>
+      </div>
+
+      <div class="story-container-wide">
+        <!-- Section Header -->
+        <div class="protocol-header">
+          <div class="protocol-badge">
+            <span class="protocol-dot"></span>
+            <span>FLIGHT ARCHITECTURE // ARTE-MIS MISSION PROTOCOL</span>
+          </div>
+          <h2 class="protocol-title">
+            The Physics Behind the <span class="text-gradient">Critical Gap</span>
+          </h2>
+          <p class="protocol-subtitle">
+            Why terrestrial fire standards fail 80,000 miles out—and where NASA empirical ground-truth ends.
+          </p>
+        </div>
+
+        <!-- 4 Floating Liquid Glass Cards Across Glowing Planetary Horizon -->
+        <div class="story-cards-grid">
+          <!-- CARD 1: Orbital Risk -->
+          <article class="story-card glass-card story-beat" data-beat="1">
+            <div class="card-glow-bottom" aria-hidden="true"></div>
+            <div class="card-header-pill">
+              <span class="pill-badge">Mission Safety</span>
+              <span class="pill-id mono">01 // CISLUNAR</span>
+            </div>
+            <h3 class="card-title">A fire alarm 80,000 miles out</h3>
+            <blockquote class="card-quote">
+              &ldquo;Out there, between the Earth and the Moon, there is no back door. If something catches fire, you cannot step outside.&rdquo;
+              <cite>&mdash; Artemis II Mission Evaluation Directive</cite>
+            </blockquote>
+            <p class="card-desc">
+              On Earth, evacuation takes seconds. In cislunar transit and on the lunar surface, fire is an existential crew threat. Extinguishing combustion and preserving cabin scrubbers demands proactive materials screening before launch.
+            </p>
+          </article>
+
+          <!-- CARD 2: Flame Physics -->
+          <article class="story-card glass-card story-beat" data-beat="2">
+            <div class="card-glow-bottom" aria-hidden="true"></div>
+            <div class="card-header-pill">
+              <span class="pill-badge">Fluid Mechanics</span>
+              <span class="pill-id mono">02 // REGIMES</span>
+            </div>
+            <h3 class="card-title">Gravity vs Diffusion</h3>
+            <div class="physics-contrast-list">
+              <div class="contrast-item">
+                <span class="contrast-tag tag-earth">1.00g Earth Flame</span>
+                <p>Buoyancy drafts fresh O₂ into the base, creating a flickering, elongated yellow-orange convective teardrop plume.</p>
+              </div>
+              <div class="contrast-item">
+                <span class="contrast-tag tag-micro">0.00g Microgravity</span>
+                <p>Zero buoyancy. Oxygen reaches fuel strictly by molecular diffusion, forming a soot-free, calm spherical blue dome.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3: Lunar Atmosphere -->
+          <article class="story-card glass-card story-beat" data-beat="3">
+            <div class="card-glow-bottom" aria-hidden="true"></div>
+            <div class="card-header-pill">
+              <span class="pill-badge">Habitat Spec</span>
+              <span class="pill-id mono">03 // ATMOSPHERE</span>
+            </div>
+            <h3 class="card-title">Exploration Atmosphere</h3>
+            <p class="card-desc-compact">
+              Lunar surface habitats operate at hypobaric pressure to enable frequent, rapid extravehicular activities (EVAs).
+            </p>
+            <div class="habitat-metrics-grid">
+              <div class="metric-pill">
+                <span class="metric-num mono">30–34%</span>
+                <span class="metric-sub">Oxygen Concentration</span>
+              </div>
+              <div class="metric-pill">
+                <span class="metric-num mono">&le; 10.2 PSI</span>
+                <span class="metric-sub">Cabin Pressure (Hypobaric)</span>
+              </div>
+              <div class="metric-pill">
+                <span class="metric-num mono">&lt; 20 min</span>
+                <span class="metric-sub">EVA Pre-Breathe (vs 4h ISS)</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 4: The Critical Gap -->
+          <article class="story-card glass-card story-beat card-critical-gap" data-beat="4">
+            <div class="card-glow-bottom" aria-hidden="true"></div>
+            <div class="card-header-pill">
+              <span class="pill-badge pill-gap">Data Void</span>
+              <span class="pill-id mono">04 // VERIFICATION</span>
+            </div>
+            <h3 class="card-title">Zero 0.16g PSI Data</h3>
+            <div class="critical-gap-hero">
+              <div class="big-gap-stat mono">0</div>
+              <div class="gap-label-wrap">
+                <span class="gap-stat-title">NASA PSI Flight Records</span>
+                <span class="gap-stat-sub">in Lunar Partial Gravity (0.16g)</span>
+              </div>
+            </div>
+            <p class="card-desc">
+              NASA flight combustion data ends at zero-g. Flammability boundary under lunar gravity is completely unmeasured in PSI. Flagged as primary benchmark for LUCI / FM2 lunar payload.
+            </p>
+          </article>
+        </div>
+
+        <!-- Seamless Navigation CTA -->
+        <div class="protocol-cta-wrap">
+          <a href="#views-container" class="protocol-cta-btn" id="btn-jump-atlas" aria-label="Enter Atmospheric Star-Map">
+            <span class="cta-pulse-glow" aria-hidden="true"></span>
+            <span class="cta-text">ENTER ATMOSPHERIC STAR-MAP</span>
+            <svg class="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEWS CONTAINER (TABS) with Cyber-Aerospace Orbital Earth Background -->
+    <div id="views-container" class="views-container">
+      
+      <!-- Atmospheric Orbital Earth Viewport (Cinematic Deep Space Background) -->
+      <div class="views-earth-background" aria-hidden="true">
+        <img class="views-earth-img" src="/assets/images/earth_dashboard_backdrop.jpg" alt="" loading="lazy" />
+        <div class="views-earth-atmosphere"></div>
+        <div class="views-hud-grid-overlay"></div>
+      </div>
+      
+      <!-- IN-SECTION TAB SWITCHER (For instantaneous navigation) -->
+      <div class="section-tab-bar" role="tablist" aria-label="In-section Navigation">
+        <button class="section-tab-btn active" data-target="view-atlas">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Star-Map Matrix</span>
+        </button>
+        <button class="section-tab-btn" data-target="view-passport">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>ECLSS &amp; Material Passport</span>
+        </button>
+        <button class="section-tab-btn" data-target="view-gaps">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Data Gaps &amp; Spin-Offs</span>
+        </button>
+        <!-- In-dashboard Cognitive Oracle Trigger -->
+        <button class="section-tab-btn oracle-tab-badge trigger-open-oracle" aria-label="Open Ignis Cognitive Safety Oracle">
+          <span class="oracle-live-pulse mini"></span>
+          <span>Flight Safety Agent</span>
+        </button>
+      </div>
+
+      <!-- TAB 1: STAR-MAP ATLAS VIEW -->
+      <section id="view-atlas" class="tab-view active" role="tabpanel" aria-labelledby="tab-atlas">
+        <div class="section-header">
+          <div>
+            <div class="section-badge-row">
+              <span class="hud-pill">SPRINT 2 TELEMETRY MAP</span>
+              <span class="hud-meta mono">DATABASE: NASA PSI VERIFIED // 5 DATASETS</span>
+            </div>
+            <h2 class="section-title">Atmospheric Star-Map Matrix</h2>
+            <p class="section-desc">
+              Plotting experimental midpoints and tested envelopes. Solid fuel (<span class="mono">■ Square</span>), Liquid droplet (<span class="mono">◆ Diamond</span>), Gas diffusion (<span class="mono">● Circle</span>). Click any node to open the Source Drawer.
+            </p>
+          </div>
+          <div class="filter-legend" role="region" aria-label="Chart legend">
+            <div class="legend-item"><span class="glyph-sample glyph-square"></span><span>Solid Fuel (BASS, SoFIE)</span></div>
+            <div class="legend-item"><span class="glyph-sample glyph-diamond"></span><span>Liquid Fuel (FLEX-2)</span></div>
+            <div class="legend-item"><span class="glyph-sample glyph-circle"></span><span>Gas Fuel (ACME)</span></div>
+            <div class="legend-item"><span class="legend-swatch swatch-lunar" aria-hidden="true"></span><span>Lunar Spec (&ge;30% O₂, &le;10.2 psi)</span></div>
+          </div>
+        </div>
+
+        <div class="atlas-grid">
+          <!-- Main Chart Area (HUD Glass Styling) -->
+          <div class="chart-container glass-card">
+            <div class="chart-header">
+              <div class="chart-header-left">
+                <span class="live-dot" aria-hidden="true"></span>
+                <span class="chart-badge mono">STAR-MAP MIDPOINT TELEMETRY // 2D SCATTER</span>
+              </div>
+              <div class="chart-coords mono" id="chart-cursor-coords" aria-live="polite">Hover or click any node to inspect dossier</div>
+            </div>
+
+            <div class="svg-wrapper" id="atlas-svg-container">
+              <!-- High-resolution interactive SVG injected by atlas.js -->
+            </div>
+
+            <!-- Floating Chart Tooltip -->
+            <div id="chart-tooltip" class="chart-tooltip" role="tooltip" aria-hidden="true"></div>
+          </div>
+
+          <!-- Dataset Sidebar List -->
+          <aside class="atlas-sidebar glass-card" aria-label="Loaded experiments and pending verifications">
+            <div class="sidebar-header">
+              <div>
+                <h3>NASA PSI Investigations</h3>
+                <span class="sidebar-sub mono">Click record to inspect telemetry</span>
+              </div>
+              <span class="count-badge mono" id="dataset-count-badge">5 Records</span>
+            </div>
+
+            <div class="dataset-list" id="dataset-list" role="list">
+              <!-- Injected by atlas.js -->
+            </div>
+
+            <div class="pending-section">
+              <div class="pending-header">
+                <h4>Pending Verification / Candidate Flights</h4>
+                <span class="status-chip unplotted-chip">UNPLOTTED</span>
+              </div>
+              <p class="pending-note">
+                Partial-gravity investigations with unmeasured standardized ranges in PSI are listed here to prevent false safety extrapolation.
+              </p>
+              <div id="pending-list" class="pending-list">
+                <!-- Injected by atlas.js -->
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- TAB 2: MISSION PASSPORT & ECLSS CONTROLS -->
+      <section id="view-passport" class="tab-view" role="tabpanel" aria-labelledby="tab-passport" hidden>
+        <div class="section-header">
+          <div>
+            <div class="section-badge-row">
+              <span class="hud-pill">ECLSS SIMULATION CONTROLS</span>
+              <span class="hud-meta mono">MATERIAL SAFETY PASSPORT ENGINE</span>
+            </div>
+            <h2 class="section-title">ECLSS Controls &amp; Material Safety Passport</h2>
+            <p class="section-desc">
+              Adjust cabin environmental controls or select flight presets. Real-time screening calculates material flammability coverage across spaceflight materials.
+            </p>
+          </div>
+          <div class="section-actions-row">
+            <button id="btn-export-assessment" class="btn-primary mono btn-export-assessment" aria-label="Export Habitat Screening Report as JSON">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Export Screening Summary (JSON)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="passport-sprint2-grid">
+          <!-- ECLSS Controls Panel -->
+          <div class="eclss-controls-card glass-card">
+            <div class="card-title-row">
+              <div class="icon-heading">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <h3>ECLSS Atmospheric Telemetry</h3>
+              </div>
+              <span class="hud-tag">LIVE SIMULATOR</span>
+            </div>
+
+            <!-- Flight Environment Presets -->
+            <div class="preset-group">
+              <span class="input-sublabel">MISSION PRESETS</span>
+              <div class="preset-btn-grid">
+                <button type="button" class="env-preset-btn" id="preset-iss" data-o2="21.0" data-p="14.7" data-flow="2.5" data-g="0g">
+                  <span class="preset-name">ISS Cabin</span>
+                  <span class="preset-specs mono">21% O₂ &bull; 14.7 psi &bull; 0g</span>
+                </button>
+                <button type="button" class="env-preset-btn active" id="preset-lunar" data-o2="34.0" data-p="8.2" data-flow="4.0" data-g="lunar">
+                  <span class="preset-name">Lunar Base</span>
+                  <span class="preset-specs mono">34% O₂ &bull; 8.2 psi &bull; 0.16g</span>
+                </button>
+                <button type="button" class="env-preset-btn" id="preset-mars" data-o2="28.0" data-p="9.5" data-flow="3.0" data-g="mars">
+                  <span class="preset-name">Mars Habitat</span>
+                  <span class="preset-specs mono">28% O₂ &bull; 9.5 psi &bull; 0.38g</span>
+                </button>
+                <button type="button" class="env-preset-btn" id="preset-earth" data-o2="21.0" data-p="14.7" data-flow="0.0" data-g="1g">
+                  <span class="preset-name">Earth Ground</span>
+                  <span class="preset-specs mono">21% O₂ &bull; 14.7 psi &bull; 1.0g</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gravity Mode Buttons -->
+            <div class="gravity-mode-group">
+              <span class="input-sublabel">GRAVITATIONAL REGIME</span>
+              <div class="gravity-btn-row" role="group" aria-label="Select Gravitational Field">
+                <button type="button" class="gravity-mode-btn" data-gravity="0g">0.00g (ISS 0g)</button>
+                <button type="button" class="gravity-mode-btn active" data-gravity="lunar">0.16g (Lunar)</button>
+                <button type="button" class="gravity-mode-btn" data-gravity="mars">0.38g (Mars)</button>
+                <button type="button" class="gravity-mode-btn" data-gravity="1g">1.00g (Earth)</button>
+              </div>
+            </div>
+
+            <!-- Environmental Sliders -->
+            <div class="input-group">
+              <div class="input-label-row">
+                <label for="passport-o2">Oxygen Concentration (O₂)</label>
+                <span class="mono param-display" id="passport-o2-val">34.0 %</span>
+              </div>
+              <input type="range" id="passport-o2" min="15" max="40" step="0.5" value="34.0" class="g-slider" />
+              <span class="input-hint mono">Exploration Atmosphere Target: 30.0% – 34.0%</span>
+            </div>
+
+            <div class="input-group">
+              <div class="input-label-row">
+                <label for="passport-pressure">Cabin Total Pressure</label>
+                <span class="mono param-display" id="passport-pressure-val">8.2 psi</span>
+              </div>
+              <input type="range" id="passport-pressure" min="4" max="16" step="0.1" value="8.2" class="g-slider" />
+              <span class="input-hint mono">Exploration Baseline: 8.2 psi (56.5 kPa)</span>
+            </div>
+
+            <div class="input-group">
+              <div class="input-label-row">
+                <label for="passport-airflow">Forced Cabin Airflow</label>
+                <span class="mono param-display" id="passport-airflow-val">4.0 cm/s</span>
+              </div>
+              <input type="range" id="passport-airflow" min="0" max="25" step="0.5" value="4.0" class="g-slider" />
+              <span class="input-hint mono">Cabin ventilation typical range: 2.5 to 10.0 cm/s</span>
+            </div>
+
+            <div class="warning-callout">
+              <div class="callout-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <p>
+                <strong>ECLSS Note:</strong> Atmospheric screening evaluates empirical database bounds in NASA PSI. Does not replace physical flammability qualification under NASA-STD-6001.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tactical Data Connectors SVG Bridge (Hairline Flow Paths) -->
+          <div class="tactical-connector-bridge" aria-hidden="true">
+            <svg class="connector-svg" viewBox="0 0 60 480" fill="none" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="traceGradCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#00D2FF" stop-opacity="0.4"/>
+                </linearGradient>
+                <linearGradient id="traceGradAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#FFB800" stop-opacity="0.4"/>
+                </linearGradient>
+              </defs>
+              <!-- O2 Telemetry Line -->
+              <path d="M 0 110 C 35 110, 25 80, 60 80" stroke="url(#traceGradCyan)" stroke-width="1.8" class="pulsing-trace trace-1"/>
+              <!-- Pressure Telemetry Line -->
+              <path d="M 0 230 C 35 230, 25 200, 60 200" stroke="url(#traceGradAmber)" stroke-width="1.8" class="pulsing-trace trace-2"/>
+              <!-- Airflow / Gravity Telemetry Line -->
+              <path d="M 0 350 C 35 350, 25 320, 60 320" stroke="url(#traceGradCyan)" stroke-width="1.8" class="pulsing-trace trace-3"/>
+              <!-- Terminus Dots -->
+              <circle cx="0" cy="110" r="3" fill="#00F0FF" class="trace-dot"/>
+              <circle cx="60" cy="80" r="3" fill="#00F0FF" class="trace-dot"/>
+              <circle cx="0" cy="230" r="3" fill="#F59E0B" class="trace-dot"/>
+              <circle cx="60" cy="200" r="3" fill="#F59E0B" class="trace-dot"/>
+              <circle cx="0" cy="350" r="3" fill="#00F0FF" class="trace-dot"/>
+              <circle cx="60" cy="320" r="3" fill="#00F0FF" class="trace-dot"/>
+            </svg>
+          </div>
+
+          <!-- Material Safety Passport Cards Grid (Sprint 2 Core) -->
+          <div class="passport-cards-column">
+            <div class="column-header">
+              <div>
+                <h3>Flight Material Safety Passport</h3>
+                <span class="mono hud-tag" id="passport-eval-summary">EVALUATING 4 MATERIALS</span>
+              </div>
+              <button type="button" id="btn-toggle-custom-mat" class="btn-ghost mono" style="font-size:0.75rem; padding:6px 12px; gap:6px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>+ Screen Custom Material</span>
+              </button>
+            </div>
+
+            <!-- Custom Material Screening Interactive Form -->
+            <div id="custom-material-form-container" class="custom-mat-card glass-card" style="display:none; margin-bottom:18px; padding:18px 20px; border-left:3px solid var(--flame);">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <span class="mono" style="font-size:0.75rem; font-weight:700; color:var(--flame); letter-spacing:0.06em;">+ EXTENSIBLE MATERIAL SCREENER // USER SPECIFICATION</span>
+                <button type="button" id="btn-close-custom-form" class="icon-btn" style="width:28px; height:28px;" aria-label="Cancel custom material">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+              <form id="custom-material-form" style="display:grid; grid-template-columns:1fr 140px auto; gap:12px; align-items:flex-end;">
+                <div>
+                  <label for="custom-mat-name" style="display:block; font-size:0.75rem; color:var(--text-muted); margin-bottom:4px; font-weight:600;">MATERIAL NAME / SPECIFICATION</label>
+                  <input type="text" id="custom-mat-name" placeholder="e.g. Teflon (PTFE) Wire Insulation" required style="width:100%; padding:8px 12px; background:rgba(255,255,255,0.05); border:1px solid var(--surface-border); border-radius:4px; color:var(--text); font-family:var(--font-sans); font-size:0.85rem;" />
+                </div>
+                <div>
+                  <label for="custom-mat-o2" style="display:block; font-size:0.75rem; color:var(--text-muted); margin-bottom:4px; font-weight:600;">MAX O₂ TARGET (%)</label>
+                  <input type="number" id="custom-mat-o2" min="15" max="100" step="0.5" value="34.0" required style="width:100%; padding:8px 12px; background:rgba(255,255,255,0.05); border:1px solid var(--surface-border); border-radius:4px; color:var(--text); font-family:var(--font-mono); font-size:0.85rem;" />
+                </div>
+                <button type="submit" class="btn-primary mono" style="padding:8px 18px; font-size:0.78rem; height:37px;">
+                  <span>Screen Material</span>
+                </button>
+              </form>
+            </div>
+
+            <div class="material-cards-grid" id="material-cards-container">
+              <!-- Dynamically populated & updated by atlas.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: DATA GAPS & TERRESTRIAL SPIN-OFFS -->
+      <section id="view-gaps" class="tab-view" role="tabpanel" aria-labelledby="tab-gaps" hidden>
+        <div class="section-header">
+          <div>
+            <div class="section-badge-row">
+              <span class="hud-pill alert-pill">CRITICAL GAPS &amp; SPIN-OFFS</span>
+              <span class="hud-meta mono">RESEARCH RECOMMENDATIONS // TERRESTRIAL BENEFIT</span>
+            </div>
+            <h2 class="section-title">Critical Data Gaps &amp; Earth Spin-Offs</h2>
+            <p class="section-desc">
+              Automated synthesis of unmapped lunar exploration coordinates, along with terrestrial fire suppression spin-offs born from NASA microgravity combustion.
+            </p>
+          </div>
+        </div>
+
+        <div class="gaps-container">
+          <!-- Summary Banner -->
+          <div class="gaps-summary-banner glass-card">
+            <div class="summary-stat-box">
+              <span class="summary-num mono text-gap" id="gaps-count-display">2</span>
+              <span class="summary-label">CRITICAL MATERIAL VOIDS IN PSI</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-stat-box">
+              <span class="summary-num mono text-near">0.16 g</span>
+              <span class="summary-label">UNMAPPED PARTIAL GRAVITY REGIME</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-stat-box">
+              <span class="summary-num mono text-ok">2</span>
+              <span class="summary-label">MAJOR TERRESTRIAL EARTH SPIN-OFFS</span>
+            </div>
+          </div>
+
+          <!-- Gaps Breakdown Cards -->
+          <div class="gaps-grid">
+            <div class="gap-card glass-card">
+              <div class="gap-badge-pill gap-pill-red">CRITICAL MATERIAL VOID</div>
+              <h3>Silicone Elastomer &amp; Nomex In Microgravity</h3>
+              <p class="gap-card-stat mono">0 Standardized Datasets in PSI</p>
+              <p>
+                Essential spacecraft hatch seals (Silicone) and flight suit textiles (Nomex) have no standardized flammability envelopes under microgravity or exploration atmospheres in public PSI records.
+              </p>
+              <div class="gap-action-tag mono">
+                TAG: HIGH-PRIORITY BENCHMARK FOR UPCOMING LUCI / FM2 LUNAR MISSION
+              </div>
+            </div>
+
+            <div class="gap-card glass-card">
+              <div class="gap-badge-pill gap-pill-amber">UNMAPPED REGIME</div>
+              <h3>Lunar Partial Gravity (0.16 g) Void</h3>
+              <p class="gap-card-stat mono">0 Verified Envelopes in PSI</p>
+              <p>
+                Querying NASA PSI for "Reduced Gravity" yields 0 standardized flight investigations. Natural convection does not cease at 0.16g; instead, it enters an unmodeled boundary regime between ISS diffusion spheres and Earth plumes.
+              </p>
+              <div class="gap-action-tag mono">
+                RECOMMENDATION: DEDICATED PARTIAL-G CENTRIFUGE / PARABOLIC CAMPAIGN
+              </div>
+            </div>
+
+            <div class="gap-card glass-card">
+              <div class="gap-badge-pill gap-pill-amber">BOUNDARY CONDITION</div>
+              <h3>Exploration Atmosphere Extremes</h3>
+              <p class="gap-card-stat mono">O₂ &ge; 30% with Pressure &le; 10.2 psi</p>
+              <p>
+                Simultaneous oxygen enrichment and low pressure accelerates chemical oxidation kinetics while dampening gas thermal conductivity. Public test runs at this exact intersection remain sparse.
+              </p>
+              <div class="gap-action-tag mono">
+                COORDINATE PINPOINT: O₂ 34.0%, P 8.2 psi (Distance: 0.118 from ACME)
+              </div>
+            </div>
+          </div>
+
+          <!-- Earth Spin-Off Card (Sprint 2 Dedicated Deliverable) -->
+          <div class="spinoff-card glass-card">
+            <div class="spinoff-header">
+              <div class="spinoff-badge-row">
+                <span class="hud-pill" style="color:var(--ok); border-color:var(--ok);">EARTH APPLICATION</span>
+                <span class="hud-meta mono">NASA TECHNOLOGY TRANSFER PROGRAM</span>
+              </div>
+              <h3 class="spinoff-title">Terrestrial Fire Safety Spin-Offs Born from Microgravity Research</h3>
+              <p class="spinoff-desc">
+                Research conducted aboard the ISS Combustion Integrated Rack (CIR) and Microgravity Science Glovebox (BASS &amp; FLEX) has directly transformed terrestrial civilian fire protection.
+              </p>
+            </div>
+
+            <div class="spinoff-grid">
+              <div class="spinoff-item">
+                <div class="spinoff-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                </div>
+                <div>
+                  <h4 class="spinoff-item-title">Fine-Mist Fire Extinguishers</h4>
+                  <p class="spinoff-item-desc">
+                    Derived directly from <strong>FLEX-2 droplet extinction experiments</strong> in microgravity. Micro-droplet mist systems extinguish severe industrial fires using 90% less water than conventional sprinklers, eliminating collateral water damage in marine engine rooms, historical archives, and semiconductor cleanrooms.
+                  </p>
+                </div>
+              </div>
+
+              <div class="spinoff-item">
+                <div class="spinoff-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <div>
+                  <h4 class="spinoff-item-title">EV Lithium-Ion Battery Thermal-Runaway Detection</h4>
+                  <p class="spinoff-item-desc">
+                    Born from <strong>BASS &amp; SAME solid smoldering pyrolysis studies</strong>. High-sensitivity trace gas and aerosol particle detection algorithms developed for spacecraft cabins are now integrated into terrestrial electric vehicles and grid-scale battery storage to detect battery cell venting up to 15 minutes before open fire erupts.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- EXPERIMENT DETAILS MODAL / DRAWER (Awwwards-level Glass Dialog) -->
+  <div id="experiment-drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawer-backdrop" tabindex="-1"></div>
+    <div class="drawer-panel glass-card" role="document">
+      <div class="drawer-header">
+        <div class="drawer-badge-row">
+          <span class="hud-pill" id="drawer-id">EXP-00</span>
+          <span class="hud-status-badge" id="drawer-status-chip">VERIFIED FLIGHT RECORD</span>
+        </div>
+        <button id="drawer-close-btn" class="icon-btn close-btn" aria-label="Close experiment details">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="drawer-content">
+        <div class="drawer-hero-banner" id="drawer-image-banner">
+          <div class="banner-overlay"></div>
+          <div class="banner-badge mono" id="drawer-facility-badge">ISS Destiny Laboratory // CIR</div>
+        </div>
+
+        <h3 id="drawer-title" class="drawer-title">Experiment Title</h3>
+        <p id="drawer-hardware" class="drawer-hardware">Hardware Facility</p>
+
+        <div class="drawer-section">
+          <h4 class="section-label">KEY SCIENTIFIC FINDING</h4>
+          <p id="drawer-finding" class="drawer-quote"></p>
+        </div>
+
+        <div class="drawer-section">
+          <h4 class="section-label">TESTED TELEMETRY ENVELOPE</h4>
+          <div class="telemetry-bar-grid">
+            <div class="telemetry-cell">
+              <span class="cell-label">OXYGEN CONCENTRATION</span>
+              <span id="drawer-o2" class="cell-val mono">--</span>
+              <div class="meter-bar"><div class="meter-fill fill-o2" id="meter-o2"></div></div>
+            </div>
+            <div class="telemetry-cell">
+              <span class="cell-label">CHAMBER PRESSURE</span>
+              <span id="drawer-pressure" class="cell-val mono">--</span>
+              <div class="meter-bar"><div class="meter-fill fill-p" id="meter-p"></div></div>
+            </div>
+            <div class="telemetry-cell">
+              <span class="cell-label">FORCED AIRFLOW</span>
+              <span id="drawer-airflow" class="cell-val mono">--</span>
+              <div class="meter-bar"><div class="meter-fill fill-flow" id="meter-flow"></div></div>
+            </div>
+            <div class="telemetry-cell">
+              <span class="cell-label">GRAVITY REGIME</span>
+              <span id="drawer-gravity" class="cell-val mono">--</span>
+            </div>
+          </div>
+          
+          <dl class="drawer-spec-grid">
+            <div>
+              <dt>Fuel State</dt>
+              <dd id="drawer-fuel">Solid</dd>
+            </div>
+            <div>
+              <dt>Materials Tested</dt>
+              <dd id="drawer-materials">PMMA</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="drawer-section">
+          <h4 class="section-label">PROVENANCE &amp; ARCHIVAL VERIFICATION</h4>
+          <p id="drawer-verified" class="drawer-verified"></p>
+          <p id="drawer-notes" class="drawer-notes"></p>
+        </div>
+
+        <div class="drawer-actions">
+          <a id="drawer-doi-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <span>Open DOI Resolver</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a id="drawer-psi-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+            <span>Browse NASA PSI Repo</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JUDGE DEMO MODE / GUIDED TOUR HUD OVERLAY (Sprint 3 Core) -->
+  <aside id="tour-hud-overlay" class="tour-hud-overlay" aria-live="assertive" hidden>
+    <div class="tour-hud-inner glass-card">
+      <div class="tour-hud-header">
+        <div class="tour-step-indicator" style="display:flex; align-items:center; gap:8px;">
+          <span class="status-radar-dot" aria-hidden="true"></span>
+          <!-- Circular countdown ring -->
+          <svg width="24" height="24" viewBox="0 0 36 36" style="transform: rotate(-90deg); flex-shrink:0;">
+            <circle cx="18" cy="18" r="15" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="3" />
+            <circle id="tour-countdown-ring" cx="18" cy="18" r="15" fill="none" stroke="var(--flame)" stroke-width="3" stroke-dasharray="94.2" stroke-dashoffset="0" stroke-linecap="round" style="transition: stroke-dashoffset 0.2s linear;" />
+          </svg>
+          <span class="mono hud-step-text" id="tour-step-badge">STEP 1/4 // 08s</span>
+        </div>
+        <span class="tour-title mono" id="tour-step-title">ISS ORBITAL BASELINE</span>
+        <div class="tour-controls">
+          <button id="tour-pause-btn" class="tour-ctrl-btn mono" aria-label="Pause Tour">Pause</button>
+          <button id="tour-close-btn" class="tour-ctrl-btn tour-exit-btn mono" aria-label="Exit Tour">Exit Tour</button>
+        </div>
+      </div>
+      <p id="tour-hud-desc" class="tour-hud-desc">
+        Auto-selecting ISS Cabin baseline (21% O₂, 14.7 psi, 0.00g). PMMA acrylic evaluates as COVERED inside verified BASS/SoFIE boundaries.
+      </p>
+      <div class="tour-progress-bar">
+        <div id="tour-progress-fill" class="tour-progress-fill"></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- METHODOLOGY & SCIENTIFIC LIMITS MODAL (Sprint 3 Transparent Disclosures) -->
+  <div id="modal-about" class="modal" role="dialog" aria-modal="true" aria-labelledby="about-title" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop" tabindex="-1"></div>
+    <div class="modal-card glass-card" role="document">
+      <div class="modal-header">
+        <div>
+          <span class="hud-pill mono" style="margin-bottom:6px; display:inline-block;">METHODOLOGY &amp; SCIENTIFIC LIMITS</span>
+          <h3 id="about-title">Aerospace Screening Architecture</h3>
+        </div>
+        <button id="modal-close-btn" class="icon-btn" aria-label="Close Dialog">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <section class="modal-section">
+          <h4>Mission Scope &amp; Purpose</h4>
+          <p>
+  <!-- Modal dollar-sign escape: LaTeX math will not render in HTML text; using Unicode notations -->
+          <strong>Ignis Atlas</strong> is an open-access screening architecture for spacecraft, transit vehicles, and lunar surface habitats (Artemis Program). It cross-references prospective cabin atmospheric baselines (O₂% concentration, total pressure, airflow ventilation velocity, and material flammability limits) against empirical microgravity combustion flight datasets archived in the <strong>NASA Physical Sciences Informatics (PSI)</strong> repository.
+          </p>
+        </section>
+
+        <section class="modal-section">
+          <h4>What We Do</h4>
+          <p>
+            We systematically index and benchmark empirical boundary envelopes from verified orbital investigations:
+          </p>
+          <ul class="bullet-list">
+            <li><strong>BASS &amp; BASS-II:</strong> Solid fuel burning and extinction limits in the Microgravity Science Glovebox (MSG).</li>
+            <li><strong>Saffire Series (I–VI):</strong> Large-scale fabric and solid composite combustion in expendable Cygnus resupply vehicles.</li>
+            <li><strong>FLEX &amp; FLEX-2:</strong> Isolated droplet burning, cool flames, and radiative extinction in the Combustion Integrated Rack (CIR).</li>
+            <li><strong>ACME (CFI-G / CLD Flame):</strong> Gaseous spherical diffusion flames quantifying soot-free extinction limits in microgravity.</li>
+            <li><strong>SoFIE (GEL / MIST / SMiFF):</strong> Standardized solid fuel ignition and extinction benchmarks for future spaceflight materials.</li>
+          </ul>
+        </section>
+
+        <section class="modal-section modal-alert-section">
+          <h4 class="text-near">Strict Scientific Disclaimers &amp; Operational Boundaries</h4>
+          <div class="modal-disclaimer-box">
+            <p><strong>1. Engineering Decision Support Only — Not NASA-STD-6001 Certification:</strong> Ignis Atlas is an early-stage screening aid. It does NOT constitute formal safety qualification or replace compliance certification under NASA-STD-6001 (Test 1 upward flame propagation, Test 2 toxic offgassing, or Test 7 downward smoldering) or formal Aerospace Flight Safety Reviews.</p>
+            <p><strong>2. Deterministic Envelopes — Zero Hallucinated Probabilities:</strong> This system does NOT predict ignition likelihood, fire occurrence probability, or flame spread velocity. Flammability screening is deterministic based strictly on whether cabin parameters reside inside, near, or outside empirical database bounds.</p>
+            <p><strong>3. The Partial-Gravity Void (0.16g Moon / 0.38g Mars):</strong> Querying the NASA PSI repository yields <strong>zero empirical reduced-gravity investigations</strong>. Natural buoyant convection does not cease on the Moon; rather, it transitions into an unmapped intermediate regime between orbital diffusion spheres and terrestrial buoyant plumes. All lunar predictions remain strictly categorized as <em>Extrapolated</em> or <em>Data Gaps</em>, highlighting the urgent mission need for the upcoming <strong>LUCI (Lunar Combustion Investigation)</strong> payload.</p>
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h4>Data Attribution &amp; Open Science</h4>
+          <p>
+            All research records, bounding coordinates, and hardware citations originate exclusively from public domain datasets in the <a href="https://psi.nasa.gov" target="_blank" rel="noopener noreferrer">NASA Physical Sciences Informatics (PSI)</a> repository and corresponding peer-reviewed journals under CC0 / NASA Open Science directives.
+          </p>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button id="modal-ack-btn" class="btn-primary mono">Acknowledge &amp; Proceed</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="app-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-disclaimer">
+        <span class="disclaimer-badge">AEROSPACE NOTICE</span>
+        Screening tool built on public NASA PSI data. Not a safety certification. Does not predict fires or certify flight hardware.
+      </div>
+      <div class="footer-meta mono">
+        <span>NASA Space Apps Challenge 2026</span>
+        <span>&bull;</span>
+        <span>PSI Verified Envelopes v3.0 // Sprint 3 Production</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

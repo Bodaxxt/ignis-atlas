@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+    "method": "GET",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "body_preview": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <base href=\"/physci/repo/\"/>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"CSP-NONCE\" content=\"ZKjW5eb+8Nd4lIrr9Ml0JWSh\"/>\n    <title>NASA PSI</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n    <link rel=\"shortcut icon\" href=\"assets/img/nasa_logo.png\"/>\n    <script async=\"\" type=\"text/javascript\" src=\"https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=ARC\" id=\"_fed_an_ua_tag\" int"
+  },
+  {
+    "url": "https://psi.nasa.gov/physci/repo/runtime.5d92ac378348432a.js",
+    "method": "GET",
+    "status": 200,
+    "content_type": "application/javascript",
+    "body_preview": "(()=>{\"use strict\";var e,v={},_={};function r(e){var n=_[e];if(void 0!==n)return n.exports;var t=_[e]={exports:{}};return v[e].call(t.exports,t,t.exports,r),t.exports}r.m=v,e=[],r.O=(n,t,o,i)=>{if(!t){var a=1/0;for(f=0;f<e.length;f++){for(var[t,o,i]=e[f],l=!0,d=0;d<t.length;d++)(!1&i||a>=i)&&Object.keys(r.O).every(b=>r.O[b](t[d]))?t.splice(d--,1):(l=!1,i<a&&(a=i));if(l){e.splice(f--,1);var s=o();void 0!==s&&(n=s)}}return n}i=i||0;for(var f=e.length;f>0&&e[f-1][2]>i;f--)e[f]=e[f-1];e[f]=[t,o,i]},"
+  },
+  {
+    "url": "https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&subagency=ARC",
+    "method": "GET",
+    "status": 200,
+    "content_type": "application/javascript",
+    "body_preview": "!function(){var e=!1,t=[],a=[],r={GWT_GA4ID:[\"G-CSLL4ZEK4L\"],FORCE_SSL:!0,ANONYMIZE_IP:!0,AGENCY:\"\",SUB_AGENCY:\"\",VERSION:\"20260107 v8.8 - GA4\",SITE_TOPIC:\"\",SITE_PLATFORM:\"\",SCRIPT_SOURCE:\"\",URL_PROTOCOL:location.protocol,USE_MAIN_CUSTOM_DIMENSIONS:!0,MAIN_AGENCY_DIMENSION:\"agency\",MAIN_SUBAGENCY_DIMENSION:\"subagency\",MAIN_CODEVERSION_DIMENSION:\"version\",MAIN_SITE_TOPIC_DIMENSION:\"site_topic\",MAIN_SITE_PLATFORM_DIMENSION:\"site_platform\",MAIN_SCRIPT_SOURCE_URL_DIMENSION:\"script_source\",\nMAIN_URL"
+  },
+  {
+    "url": "https://psi.nasa.gov/physci/repo/polyfills.d166c8148d7964be.js",
+    "method": "GET",
+    "status": 200,
+    "content_type": "application/javascript",
+    "body_preview": "\"use strict\";(self.webpackChunkdata_repository=self.webpackChunkdata_repository||[]).push([[429],{7435:(ie,Ee,de)=>{de(8583)},8583:()=>{!function(e){const n=e.performance;function i(M){n&&n.mark&&n.mark(M)}function o(M,E){n&&n.measure&&n.measure(M,E)}i(\"Zone\");const c=e.__Zone_symbol_prefix||\"__zone_symbol__\";function a(M){return c+M}const y=!0===e[a(\"forceDuplicateZoneCheck\")];if(e.Zone){if(y||\"function\"!=typeof e.Zone.__symbol__)throw new Error(\"Zone already loaded.\");return e.Zone}let d=(()=>"
+  }
+]
